@@ -36,7 +36,7 @@ class Rooms extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, hotel_id, purpose_id, roomtype_id', 'required'),
-			array('hotel_id, purpose_id, roomtype_id, quantity', 'numerical', 'integerOnly'=>true),
+			array('hotel_id, purpose_id, roomtype_id', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
 			array('name', 'length', 'max'=>255),
 			array('description', 'safe'),
@@ -71,7 +71,7 @@ class Rooms extends CActiveRecord
 			'hotel_id' => 'Hotel',
 			'purpose_id' => 'Purpose',
 			'roomtype_id' => 'Roomtype',
-                    'quantity'=>'Quantity',
+//                    'quantity'=>'Quantity',
 			'price' => 'Price',
 			'description' => 'Description',
 		);

@@ -142,7 +142,7 @@
         </div>
         <div class="searchbox col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="searchbox-wrap clearfix">
-                <form action="http://localhost/hotel6/index.php/site/search" method="POST">
+                <form action="<?php echo $this->createUrl('/site/search')?>"  method="POST" name="search">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <ul>
                             <li class="font-size-12 font-bold lbl-search">Find Hotel Now</li>
@@ -155,69 +155,11 @@
                             </li>
                         </ul>
                     </div>
-<!--                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
-                        <ul>
-                            <li class="font-size-12 font-bold lbl-search">Ngày nhận phòng</li>
-                            <li class="date-home-checkin">
-                                <input type="text" id="datepicker-home-chkin" name="di" class="datepicker-chkin" value="">
-                                <i class="sprites icn-datecheckin"></i>
-                            </li>
-                        </ul>
-                    </div>-->
-                    <div class="col-xs-12 col-sm-2 col-md-1 col-lg-1 hide">
-                        <ul>
-                            <li class="font-size-12 font-bold lbl-search">Số đêm</li>
-                            <li>
-                                <select id="datepicker-home-nights" name="dn" class="datepicker-nights">
-                                            <option value="1" selected="">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23">23</option>
-                                            <option value="24">24</option>
-                                            <option value="25">25</option>
-                                            <option value="26">26</option>
-                                            <option value="27">27</option>
-                                            <option value="28">28</option>
-                                            <option value="29">29</option>
-                                            <option value="30">30</option>
 
-                                    <option value="0">30+</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-<!--                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
-                        <ul>
-                            <li class="font-size-12 font-bold lbl-search">Ngày trả phòng</li>
-                            <li class="date-home-checkout">
-                                <input type="text" id="datepicker-home-chkout" name="do" class="datepicker-chkout" value="">
-                                <i class="sprites icn-datecheckout"></i>
-                            </li>
-                        </ul>
-                    </div>-->
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                         <ul>
                             <li class="font-size-12">&nbsp;</li>
-                            <li><input type="submit" value="Search" class="btn-orange bdr-orange font-bold"></li>
+                            <li><input type="submit" value="Search" class="btn-orange bdr-orange font-bold" name = "submit"></li>
                         </ul>
                     </div>
                 </form>
@@ -234,21 +176,39 @@
 <div class="home-hotel">
     <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-                <h3>Newest Hotel </h3>
+                <h3>TOP Hotel </h3>
                 <div class="popular-tab">
                     <div class="popular-wrap mCustomScrollbar _mCS_1" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-light-thick mCSB_vertical mCSB_outside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
     
                                 <?php 
-                                foreach($model as $model)
+                                  foreach($model as $model)
                                 {
-                                    $test = 
-                                $low =  Rooms::model()->findAll( "hotel_id = {$model->id}");
-                                      
-                                foreach ($low as $low)
-                                {
-                                  $test = $low->price;
+                              $low = Rooms::model()->findAll("hotel_id = {$model->id}");
+                              $arr = array("unknown");
+                            
+                              foreach ($low as $low){
+                                  
+                                  $arr[] = $low->price;
+                              }
+                              
+                            
+                                      $aver  = Comments::model()->findAll( "hotel_id = {$model->id}");
+                                      $i = 0;$j =0;$averPoint = 0;
+                                      foreach ($aver as $aver){
+                                          $i +=1;
+                                          $j += $aver->point;
+                                          
+                                          
+                                      }
                                     
-                                }
+                                     if($i != 0) {$averPoint = $j/$i ;
+                                     $update = Hotels::model()->findByPk($model->id);
+                                     $update->aver_point = $averPoint;
+                                     $update->save();
+                                     }
+    
+     
+                            
                            
 
                                     
@@ -258,9 +218,31 @@
             <img src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyraac-17mppr7dv6cjk-350x230.jpg" alt="Khách sạn Asiana Sapa Thác Bạc" class="mCS_img_loaded">
         </a>
             <div class="popular-item-review">
-                <span class="review-score">0.0</span>
-                            <strong class="review-text">Chưa có</strong>
+                <span class="review-score"><?php 
+                
+                
+                
+                
+                
+                echo number_format($model->aver_point, 2 );
+                
+                
+                
+                
+                
+                
+                ?></span>
+                            <strong class="review-text"><?php
+                            if($model->aver_point < 6)
+                                echo 'not good';
+                                else if ($model->aver_point < 8)
+                                    echo 'good';
+                                else echo 'excellent';
+                            
+                            
+                            ?></strong>
             <span class="review content-horizontal"></span>
+            <a href="#" class="review-count"><?php echo $i;  ?> reviews</a>
              <form method="post" action="http://localhost/hotel6/index.php/comments/create">
              <table>
                  <input type="text" style="width: 10px" name="hotel_id" value="<?php  echo $model->id?>"
@@ -273,14 +255,16 @@
         </div>    
                         <div class="popular-item-price">
                     <span class="price-txt">Price from</span>
-                    <span class="price-num"><?php echo 'tung';  ?></span>
+                    <span class="price-num"><?php
+                    
+                   echo min($arr);?> VND</span>
                 </div>
         <div class="popular-item-badges">
             <i class="sprites icn-favorite"></i>
         </div>
         <ul class="popular-item-info">
             <li class="popular-item-name"><a href="//www.ivivu.com/khach-san-sapa/khach-san-asiana-sapa-thac-bac">
-<?php echo $model->name; ?></a>
+<a href="<?php echo $this->createUrl('/site/hotelDetail', array('id' =>$model->id)) ?>"><?php echo $model->name?></a></a>
             <i class="sprites icn-star-25"></i></li>
                 <li class="popular-item-address"><?php echo $model->address; ?></li>
         </ul>
@@ -302,20 +286,41 @@
                     
                 </div>
                 <div class="whiteboard-content clearfix">
-    <div class="whiteboard-item col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                     <?php 
+        $com = Comments::model()->findAll(array(
+            'order'=>'id DESC',
+            'limit'=>8,
+            
+            
+            
+        ));
+        
+foreach ($com as $com)
+{
+    
+
+        
+        
+        ?>
+    <div class="whiteboard-item col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: #A0C419 solid 1px;">
+       
    
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-            <strong> Bali </strong> vote
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 ">
+            <strong><?php 
+            $user = User::model()->findByPk($com->user_id);
+            echo $user->username ; ?></strong> vote
       
             <span style="background-color: #A0C419; color: #FFFFFF;   padding: 2px 4px;   border-radius: 4px;
-                  font-weight: bold">10</span><br>at <strong>sjbvdvbjdfvbfdbvdfjbj</strong>
+                  font-weight: bold"><?php echo $com->point;?></span> at <strong><?php echo Hotels::model()->findByPk($com->hotel_id)->name ;?></strong>
         </div>
+        
+
           
-        <br>
+        <br><br>
     <br>
-        "bdvbdfbvkfdbj f jgb bvfdj bjfd vjfdv fj bf bj fjb jrf gbj gfb jg bjgb jfg bjgf bj gfb gf bjfg bjfg jb fgb gf bj
-        "
+    "<?php echo $com->content;?>"
         </div>
+                    <?php } ?>
 <!--        <div class="whiteboard-item-mid col-xs-3 col-sm-3 col-md-3 col-lg-3">
 22<span class="whiteboard-item-mid-full">khách sạn</span><span class="whiteboard-item-mid-cut">ks</span>        </div>-->
 
@@ -589,8 +594,8 @@
     <!-- BEGIN PRELOADER -->
     <div id="preloader" class="hide">
     <i class="preloader"></i>
-    <h4>Vui lòng chờ!</h4>
-    <span>đang tải dữ liệu</span>
+    <h4>Please Waiting</h4>
+    <span>loading data</span>
 </div>
 
     <!-- END PRELOADER -->    

@@ -40,12 +40,12 @@ class Hotels extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, City, address, description, rank', 'required'),
-			array('rank, total_cmt, total_point', 'numerical', 'integerOnly'=>true),
+			array('rank', 'numerical', 'integerOnly'=>true),
 			array('aver_point', 'numerical'),
 			array('name, City, address', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, City, address, description, rank, total_cmt, total_point, aver_point', 'safe', 'on'=>'search'),
+			array('id, name, City, address, description, rank, aver_point', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,8 +77,7 @@ class Hotels extends CActiveRecord
 			'address' => 'Address',
 			'description' => 'Description',
 			'rank' => 'Rank',
-			'total_cmt' => 'Total Cmt',
-			'total_point' => 'Total Point',
+			
 			'aver_point' => 'Aver Point',
 		);
 	}
@@ -107,8 +106,7 @@ class Hotels extends CActiveRecord
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('rank',$this->rank);
-		$criteria->compare('total_cmt',$this->total_cmt);
-		$criteria->compare('total_point',$this->total_point);
+		
 		$criteria->compare('aver_point',$this->aver_point);
 
 		return new CActiveDataProvider($this, array(

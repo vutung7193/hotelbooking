@@ -41,15 +41,7 @@
 		<?php echo $form->textField($model,'rank'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'total_cmt'); ?>
-		<?php echo $form->textField($model,'total_cmt'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'total_point'); ?>
-		<?php echo $form->textField($model,'total_point'); ?>
-	</div>
+	
 
 	<div class="row">
 		<?php echo $form->label($model,'aver_point'); ?>

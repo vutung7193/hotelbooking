@@ -70,6 +70,7 @@ class HotelConvenientController extends HomeController
 		if(isset($_POST['HotelConvenient']))
 		{
 			$model->attributes=$_POST['HotelConvenient'];
+                        
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

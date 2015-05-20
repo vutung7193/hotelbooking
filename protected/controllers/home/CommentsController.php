@@ -67,14 +67,14 @@ class CommentsController extends HomeController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		if(isset($_POST['Comments']))
-		{
+		{$model->hotel_id = $_POST['hotel_id'];
 			$model->attributes=$_POST['Comments'];
                          $model->user_id = Yii::app()->user->id;
-                      $model->hotel_id = $_POST['hotel_id'];
-                      $hotel = Hotels::model()->findByPk($model->hotel_id);
-                      $hotel->total_cmt = 1;
-                      $hotel->total_point = 6;
-                      $hotel->aver_point = $hotel->total_point /  $hotel->total_cmt;
+                      
+//                      $hotel = Hotels::model()->findByPk($model->hotel_id);
+//                      $hotel->total_cmt = 1;
+//                      $hotel->total_point = 6;
+//                      $hotel->aver_point = $hotel->total_point /  $hotel->total_cmt;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

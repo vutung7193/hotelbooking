@@ -24,9 +24,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('roomtype_id')); ?>:</b>
 	<?php echo CHtml::encode($data->roomtype_id); ?>
 	<br />
-        <b><?php echo CHtml::encode($data->getAttributeLabel('quantity')); ?>:</b>
-	<?php echo CHtml::encode($data->quantity); ?>
-	<br />
+
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('price')); ?>:</b>
 	<?php echo CHtml::encode($data->price); ?>

@@ -189,29 +189,25 @@
 <div class="search-content clearfix">
     <div class="container">
         <div class="result-text col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <!--<h3>Kết quả của từ khóa <span></span></h3>-->
+                            <h3>Kết quả của từ khóa <span></span></h3>
         </div>        
         
 
 <div class="result-ctrl mrg-tb-10 col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <ul class="ctrl-wrap">
-        <!--<li class=""><a href="javascript:;" data-search="all">Tất cả</a></li>-->
-            <!--<li><a href="javascript:;" data-search="place">Địa điểm</a></li>-->
-          
-              
-            <li class="active"><a href="javascript:;" data-search="hotel"> <?php    echo count($items); ?> Hotels</a></li>
+        <li class=""><a href="javascript:;" data-search="all">Tất cả</a></li>
+            <li><a href="javascript:;" data-search="place">Địa điểm</a></li>
+                    <li class="active"><a href="javascript:;" data-search="hotel">Khách sạn</a></li>
     </ul>
-      
-    <!--<div class="result-count"> results</div>-->
+    <div class="result-count">227 kết quả</div>
 </div>
             
 <div class="result-list col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                 <?php 
-                
                 foreach($items as $items){
-               
-                     $low = Rooms::model()->findAll("hotel_id = {$items ->id}");
+                 
+                     $low = Rooms::model()->findAll("hotel_id = {$items->id}");
                               $arr =  array("");
                               foreach ($low as $low){
                                   $arr = array("$low->price");
@@ -234,14 +230,14 @@
                             <img src="//cdn1.ivivu.com/Wotif/W353296/prop-img-full-h6330v1a-17p1i4uamjda8-90x70.jpg" alt="Khách sạn Hà Nội 3B (Golden Wings II trước đây)">
                         </a>
                         <ul class="result-info">
-                            <li class="result-title"><a href="<?php echo $this->createUrl('/site/hotelDetail', array('id' =>$items->id)) ?>"><?php echo $items->name?></a></li>
+                            <li class="result-title"><a href="//www.ivivu.com/khach-san-ha-noi/khach-san-ha-noi-3b-golden-wings-ii-truoc-day-"><?php echo $items->name; ?></a></li>
                             <li class="result-location"><?php echo $items->address; ?></li>
                                 <li class="result-more">
                                    from <span class="hotel-price"><b><?php echo min($arr);?> VND</b> </span>
                                 </li>
                         </ul>
                         <div class="result-right">
-                            <a class="btn-blue" href="<?php echo $this->createUrl('/site/hotelDetail', array('id' =>$items->id)) ?>"><?php echo 'Detail';?></a>
+                            <a href="//www.ivivu.com/khach-san-ha-noi/khach-san-ha-noi-3b-golden-wings-ii-truoc-day-" class="btn-blue">Chi tiết</a>
                         </div>
                     </div> 
                 <?php } ?>
@@ -255,40 +251,6 @@
    </div>
 </div>
 
-    <footer>
-    <div class="container">
-        <div class="foot-col-1 col-xs-12 col-sm-6 col-md-3 col-lg-2">
-            
-        </div>
-    </div>
-    <div class="container">
-        <div class="foot-col-6 col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <ul>
-                <li class="foot-call">Please call me for more detail</li>
-                <li class="foot-fone">Help:&nbsp;<a href="tel:0988.332.563">0988.332.563</a> </li>
-                <li class="foot-fone">Other:&nbsp;&nbsp;<a href="tel:01293711994">01293.71.1994</a></li>
-                <li class="foot-time">from 7h30 - 21h everyday</li>
-            </ul>
-        </div>
-        <div class="foot-col-7 col-xs-12 col-sm-12 col-md-6 col-lg-8">
-            <ul>
-                <li>
-                    <i class="sprites icn-footermail foot-mail"></i>
-                    <a href="mailto:vvt7193@gmail.com">vvt7193@gmail.com</a>
-                </li>
-                <li>
-                    <i class="sprites icn-footerpin foot-pin"></i>
-                    <b> Copyright@2015 All Right Reserved </b>
-                    
-                    <br>
-                    <b>ADDRESS: HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY </b> (<a href="javascript:;" class=" font-size-14 call-modal-map" data-lat="21.0202535" data-lng="105.84974699999998">view map</a>)
-                </li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</footer>
 <!-- END BODY -->
 
     <!-- BEGIN FOOTER  -->

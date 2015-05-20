@@ -26,7 +26,7 @@ $this->menu=array(
 		'hotel_id',
 		'purpose_id',
 		'roomtype_id',
-            'quantity',
+//            'quantity',
 		'price',
 		'description',
 	),

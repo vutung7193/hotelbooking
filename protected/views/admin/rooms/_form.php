@@ -52,11 +52,7 @@
                 echo CHtml::activeDropDownList( $model, 'roomtype_id', $list,array('empty' => 'Select a Roomtype'));?>
 		<?php echo $form->error($model,'roomtype_id'); ?>
 	</div>
-        <div class="row">
-		<?php echo $form->labelEx($model,'quantity'); ?>
-		<?php echo $form->textField($model,'quantity'); ?>
-		<?php echo $form->error($model,'quantity'); ?>
-	</div>
+     
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'price'); ?>

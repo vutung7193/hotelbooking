@@ -27,8 +27,7 @@ $this->menu=array(
 		'address',
 		'description',
 		'rank',
-		'total_cmt',
-		'total_point',
+		
 		'aver_point',
 	),
 )); ?>

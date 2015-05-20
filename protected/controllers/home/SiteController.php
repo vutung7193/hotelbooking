@@ -6,10 +6,26 @@
    public function actionIndex()
         {
     $this->pageTitle = 'HBS homepage';
-    $model = Hotels::model()->findAll();
+    $model = Hotels::model()->findAll(
+    array(
+       
+        'order' =>'aver_point DESC',
+        'limit' => 10,
+        
+    )
+            
+            
+            );
+   
+     
+                           
+        
+                                
     
        $this->render('index',array(
            'model'=>$model,
+//           'averPoint'=>$averPoint,
+           
            
        ));
         }
@@ -22,30 +38,59 @@
        $this->render('success');
 //       $this->redirect('index');
         }
-        
-      public function actionHotel($id)   
+          
+      public function actionHotelDetail($id)   
       {
           $this->pageTitle = 'Hotel';
-          $model = Rooms::model()->findAll(
-                  "hotel_id = {$id}"
-                  
-                  );
-                  $this->render('hotel'
+          $model = Hotels::model()->findByPk($id);
+               $low = Rooms::model()->findAll("hotel_id = {$model->id}");
+                              $arr = array("unknown");
+                            
+                              foreach ($low as $low){
+                                  
+                                  $arr[] = $low->price;
+                              }
+                              $minprice = min($arr);
+                              
+                  $this->render('hotelDetail', array('model'=>$model,
+                      'minprice'=>$minprice,
+                      )
                       
                   );
                           
       }
+      public function actionHotel($id)  
+      {
+              $this->render('hotel');
+      }
         public function actionSearch()   
       {
-          $this->pageTitle = 'Hotel';
-//          $model = Rooms::model()->findAll(
-//                  "hotel_id = {$id}"
-//                  
-//                  );
-                  $this->render('search'
-                      
-                  );
+         
+       $key             = isset($_REQUEST['q']) ? $_REQUEST['q'] : '';
+//            $this->pageTitle = 'Tim kiem: ' . $key;
+            if (!empty($key)) {
+                $criteria            = new CDbCriteria();
+//                $criteria->condition = 'name LIKE "' . $key . '"';
+               $criteria->addCondition('name LIKE :name');
+$criteria->params[':name']='%'.$key.'%';
+
+              
+                $items = Hotels::model()->findAll($criteria);
+             
+               
+            } else {
+                throw new CHttpException(400, 'Ban phai nhap tu khoa tim kiem');
+            }
                           
+          $this->render('search',array(
+                  
+              'items'=>$items,
+          
+              
+              
+          )
+          )
+                  ;
       }
 //        
         public function actionPage()
