@@ -18,7 +18,7 @@
  * @property Purpose $purpose
  */
 class Rooms extends CActiveRecord
-{
+{  public $avatarUpload;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,8 +38,9 @@ class Rooms extends CActiveRecord
 			array('name, hotel_id, purpose_id, roomtype_id', 'required'),
 			array('hotel_id, purpose_id, roomtype_id', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
-			array('name', 'length', 'max'=>255),
+			array('name, logo', 'length', 'max'=>255),
 			array('description', 'safe'),
+                      array('avatarUpload', 'file', 'types' => 'jpg, gif, png', 'allowEmpty' => TRUE),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, hotel_id, purpose_id, roomtype_id, price, description', 'safe', 'on'=>'search'),
@@ -72,6 +73,7 @@ class Rooms extends CActiveRecord
 			'purpose_id' => 'Purpose',
 			'roomtype_id' => 'Roomtype',
 //                    'quantity'=>'Quantity',
+                    'logo' => 'Logo',
 			'price' => 'Price',
 			'description' => 'Description',
 		);
@@ -114,6 +116,19 @@ class Rooms extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Rooms the static model class
 	 */
+           protected function beforeSave()
+        {
+            $this->avatarUpload = CUploadedFile::getInstance($this, 'logo');
+            if (isset($this->avatarUpload)) {
+                $fileName     = $this->avatarUpload->name;
+                $uploadFolder = Yii::getPathOfAlias('webroot') . DIRECTORY_SEPARATOR . 'Upload' . DIRECTORY_SEPARATOR . date('Y-m-d');
+                if (!is_dir($uploadFolder)) { mkdir($uploadFolder, 0755, TRUE); }
+                $uploadFile = $uploadFolder . DIRECTORY_SEPARATOR . $fileName;
+                $this->avatarUpload->saveAs($uploadFile); //Upload file thong qua object CUploadedFile
+                $this->logo = '/Upload/' . date('Y-m-d') . '/' . $fileName; //Lưu path vào csdl
+            }
+            return parent::beforeSave();
+        }
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

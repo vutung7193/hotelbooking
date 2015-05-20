@@ -1,6 +1,6 @@
 <html class="no-js" lang="vi"><!--<![endif]-->
     <head><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}</style>
-    <title>Khách sạn Linh Đan Sài Gòn</title>
+    <title>hotel detail</title>
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
     <meta name="dc.creator" content="iVIVU.com">
@@ -160,6 +160,8 @@
 <!-- END BREAKCUMB -->
 
 <!-- BEGIN HOTEL -->
+    <script  src="//res.ivivu.com/hotel/vendor/jssor/jssor.js"></script>
+<script src="//res.ivivu.com/hotel/vendor/jssor/jssor.slider.min.js"></script>
 <section class="htdt-container container" itemscope="" itemtype="http://schema.org/LocalBusiness">
 
 <aside class="htdt-left col-xs-12 col-sm-12 col-md-9 col-lg-9">
@@ -173,177 +175,172 @@
         <i class="entypo htdt-icon-location" aria-hidden="true" data-icon=""></i>
         <span itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress"><?php echo $model->address;?></span></span>
     </article>
-</section><section class="htdt-slider">
-    <div id="jslider-cnt" style="width: 800px; height: 450px;">
-        
-        
-        
-        
-        
-    <div style="position: absolute; top: 0px; left: 0px; width: 800px; height: 450px; transform-origin: 0px 0px 0px; transform: scale(1);"><div class="" style="width: 800px; height: 450px; display: block; position: relative; top: 0px; left: 0px; overflow: visible;"><div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div><div u="slides" class="jslides" style="z-index: 0; position: absolute; overflow: hidden;"><div style="position: absolute; z-index: 0; pointer-events: none; left: 0px; top: 0px;"><div style="width: 800px; height: 450px; top: 0px; left: 0px; position: absolute; overflow: hidden; transform: none; z-index: 1;">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwu4gq6a-8vbs454e2dq8-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: none; position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwu4gq6a-8vbs454e2dq8-72x72.jpg" style="display: none; transform: none;">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none; transform: none;">
-            <div class="jloading" style="transform: none;"></div>
-            <div class="jloadicn" style="transform: none;"></div>
-        </div></div><div style="width: 800px; height: 450px; top: 0px; left: -6.1763006154843px; position: absolute; overflow: hidden; transform: none; opacity: 0.49; z-index: 1;">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxu7pj-rz2gzcv1bdvk-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: none; position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxu7pj-rz2gzcv1bdvk-72x72.jpg" style="display: none; transform: none;">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none; transform: none;">
-            <div class="jloading" style="transform: none;"></div>
-            <div class="jloadicn" style="transform: none;"></div>
-        </div></div></div></div><div u="slides" class="jslides" style="z-index: 0; position: absolute; overflow: hidden;"><div style="width: 800px; height: 450px; top: 0px; left: 0px; position: absolute; opacity: 0; background-color: rgb(0, 0, 0);"></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: 800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyraac-17mppr7dv6cjk-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyraac-17mppr7dv6cjk-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcypk91-1j0gqtha0vkzk-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcypk91-1j0gqtha0vkzk-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcynk1o-1wy1maxw0rqps-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcynk1o-1wy1maxw0rqps-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyh7ps-g04j64vovim8-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyh7ps-g04j64vovim8-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcz1gp3-1pu2dxpvub3eo-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcz1gp3-1pu2dxpvub3eo-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxpqif-18if5garnkf0g-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxpqif-18if5garnkf0g-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyf5re-130dyx5d6pmgw-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyf5re-130dyx5d6pmgw-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwt17owa-yvrtbl46khkw-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwt17owa-yvrtbl46khkw-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxxhnn-ppdsuadxbwu8-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxxhnn-ppdsuadxbwu8-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcymd66-ftgs829za4g0-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcymd66-ftgs829za4g0-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyxmq6-81yilv29f5s0-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyxmq6-81yilv29f5s0-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcybl27-1e6nknt6cz1ts-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcybl27-1e6nknt6cz1ts-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: -800px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwu4gq6a-8vbs454e2dq8-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwu4gq6a-8vbs454e2dq8-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-            <div style="width: 800px; height: 450px; top: 0px; left: 0px; position: absolute; overflow: hidden; transform: perspective(2000px); display: none;">
-                <img u="image" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxu7pj-rz2gzcv1bdvk-800x450.jpg" itemprop="image" border="0" style="width: 800px; height: 450px; top: 0px; left: 0px; transform: perspective(2000px); position: absolute;">
-                <img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxu7pj-rz2gzcv1bdvk-72x72.jpg" style="display: none; transform: perspective(2000px);">
-            <div u="loading" class="jloader" style="width: 800px; height: 450px; top: 0px; left: 0px; z-index: 1000; display: none;">
-            <div class="jloading"></div>
-            <div class="jloadicn"></div>
-        </div></div>
-        </div><span u="arrowleft" class="jssora05l jarrowleft " style="display: none;">
-        </span><span u="arrowright" class="jssora05r jarrowright " style="display: none;">
-        </span><div u="thumbnavigator" class="jssort01 jthumb" style="width: 800px; height: 100px;">
-            
-        <div style="position: absolute; top: 0px; left: 0px; width: 800px; height: 100px; transform-origin: 0px 0px 0px; transform: scale(1);"><div class="jssort01 jthumb" style="width: 800px; height: 100px; display: block; position: relative; top: 0px; left: 0px; overflow: visible;"><div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 4px; top: 14px; width: 792px; height: 72px; z-index: 0;"><div style="position: absolute; z-index: 0; pointer-events: none; left: 80px; top: 0px;"></div></div><div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 4px; top: 14px; width: 792px; height: 72px; z-index: 0;"><div style="width: 72px; height: 72px; top: 0px; left: 0px; position: absolute; opacity: 0; background-color: rgb(0, 0, 0);"></div>
-                
-            <div style="width: 72px; height: 72px; top: 0px; left: 440px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyraac-17mppr7dv6cjk-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 520px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcypk91-1j0gqtha0vkzk-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 600px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcynk1o-1wy1maxw0rqps-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 680px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyh7ps-g04j64vovim8-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 760px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcz1gp3-1pu2dxpvub3eo-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: -80px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxpqif-18if5garnkf0g-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: -80px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyf5re-130dyx5d6pmgw-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: -80px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwt17owa-yvrtbl46khkw-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: -40px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxxhnn-ppdsuadxbwu8-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 40px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcymd66-ftgs829za4g0-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 120px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyxmq6-81yilv29f5s0-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 200px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcybl27-1e6nknt6cz1ts-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 280px; position: absolute; overflow: hidden;"><div u="prototype" class="p" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hwu4gq6a-8vbs454e2dq8-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div><div style="width: 72px; height: 72px; top: 0px; left: 360px; position: absolute; overflow: hidden;"><div u="prototype" class="pav" style="position: absolute; width: 72px; height: 72px; top: 0px; left: 0px;">
-                    <div class="w"><img u="thumb" src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcxu7pj-rz2gzcv1bdvk-72x72.jpg" class="" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;"></div>
-                    <div class="c"></div>
-                </div><div style="width: 72px; height: 72px; top: 0px; left: 0px; z-index: 1000; display: none;"></div></div></div></div></div></div></div></div></div>
 </section>
+    
+<script>
+        init_jssor_slider1 = function (containerId) {
+            var options = {
+                $AutoPlay:true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+
+                $ThumbnailNavigatorOptions: {                       //[Optional] Options to specify and enable thumbnail navigator or not
+                    $Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+
+                    $ActionMode: 1,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
+                    $SpacingX: 8,                                   //[Optional] Horizontal space between each thumbnail in pixel, default value is 0
+                    $DisplayPieces: 10,                             //[Optional] Number of pieces to display, default value is 1
+                    $ParkingPosition: 360                           //[Optional] The offset position to park thumbnail
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$(containerId, options);
+        };
+    </script>
+    <!--#region Jssor Slider Begin -->
+    <!-- To move inline styles to css file/block, please specify a class name for each element. -->
+    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 800px;
+        height: 456px; background: #24262e; overflow: hidden;">
+
+        <!-- Loading Screen -->
+        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat 50% 50%;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div>
+
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 356px; overflow: hidden;">
+         <?php 
+         foreach($img as $img){
+             ?>
+             <div>
+                 <img u="image" src="<?php echo Yii::app()->baseUrl.$img->logo; ?>" />
+                <!--<img u="thumb" src="../../../img/alila/01.jpg" />-->
+            </div>   
+             <?php
+         }
+         ?>
+            
+         
+       
+        
+        </div>
+        
+        <!--#region Thumbnail Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-thumbnail-navigator-jquery.html -->
+        <style>
+            /* jssor slider thumbnail navigator skin 01 css */
+            /*
+            .jssort01 .p            (normal)
+            .jssort01 .p:hover      (normal mouseover)
+            .jssort01 .p.pav        (active)
+            .jssort01 .p.pdn        (mousedown)
+            */
+
+            .jssort01 {
+                position: absolute;
+                /* size of thumbnail navigator container */
+                width: 800px;
+                height: 100px;
+                background: transparent;
+            }
+
+                .jssort01 .p {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 72px;
+                    height: 72px;
+                }
+
+                .jssort01 .t {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+
+                .jssort01 .w {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .jssort01 .c {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 68px;
+                    height: 68px;
+                    border: #000 2px solid;
+                    box-sizing: content-box;
+                       background: transparent;
+                    /*background: url(../img/t01.png) -800px -800px no-repeat;*/
+                    _background: none;
+                 
+                }
+
+                .jssort01 .pav .c {
+                    top: 2px;
+                    _top: 0px;
+                    left: 2px;
+                    _left: 0px;
+                    width: 68px;
+                    height: 68px;
+                    border: #000 0px solid;
+                    _border: #fff 2px solid;
+                    background-position: 50% 50%;
+                }
+
+                .jssort01 .p:hover .c {
+                    top: 0px;
+                    left: 0px;
+                    width: 70px;
+                    height: 70px;
+                    border: #fff 1px solid;
+                    background-position: 50% 50%;
+                }
+
+                .jssort01 .p.pdn .c {
+                    background-position: 50% 50%;
+                    width: 68px;
+                    height: 68px;
+                    border: #000 2px solid;
+                }
+
+                * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {
+                    /* ie quirks mode adjust */
+                    width /**/: 72px;
+                    height /**/: 72px;
+                }
+        </style>
+
+        <!-- thumbnail navigator container -->
+        <div u="thumbnavigator" class="jssort01" style="left: 0px; bottom: 0px;">
+            <!-- Thumbnail Item Skin Begin -->
+            <div u="slides" style="cursor: default;">
+                <div u="prototype" class="p">
+                    <div class=w><div u="thumbnailtemplate" class="t"></div></div>
+                    <div class=c></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!--#endregion Thumbnail Navigator Skin End -->
+        <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
+        <!-- Trigger -->
+        <script>
+            init_jssor_slider1("slider1_container");
+        </script>
+    </div>
 
 <section class="htdt-price-lbl">
     <!--<h2>Giá phòng tại <strong>Khách sạn Asiana Sapa Thác Bạc</strong></h2>-->
@@ -423,7 +420,7 @@
     
 </section>
 <section class="htdt-notice bg-success color-green br-4 mrg-b-10 pad-lr-10 pad-tb-10">
-    (*) Giá chỉ mang tính tham khảo. Quý khách vui lòng liên hệ <b>HOTLINE <a class="color-green" href="tel:0839308290">(08) 3930 8290</a></b> để được phục vụ &amp; biết thêm chi tiết. Xin cảm ơn!
+<!--    (*) Giá chỉ mang tính tham khảo. Quý khách vui lòng liên hệ <b>HOTLINE <a class="color-green" href="tel:0839308290">(08) 3930 8290</a></b> để được phục vụ &amp; biết thêm chi tiết. Xin cảm ơn!-->
 </section>
 
 <section class="htdt-price-tab">
@@ -431,10 +428,10 @@
         <table class="table-bordered mrg-lr-auto">
             <thead>
                 <tr>
-                    <th class="w460">Loại phòng</th>
+                    <th class="w460">Room Available</th>
                     
-                    <th class="w180">Giá 1 phòng/đêm</th>
-                    <th class="w180">Đặt phòng</th>
+                    <th class="w180">Price</th>
+                    <th class="w180">Booking</th>
                 </tr>
             </thead>
             <tbody>
@@ -493,113 +490,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="htdt-room " data-roomid="61573">
-                        <td class="w460 htdt-room-name">
-                            <h3>Standard Room</h3>
-                                <span><b>2 người</b> (Tối đa 2)</span>
-                        </td>
-                        
-                        <td class="w180 htdt-room-price">
-                                <span class="font-size-12 color-red">
-                                    LIÊN HỆ<br><a href="tel:0839308290" class="font-size-16 font-bold color-red cr-red">(08) 3930 8290</a>
-                                </span>
-                        </td>
-                        <td class="w180 htdt-room-ctrl">
-                            <a href="javascript:;" class="htdt-room-button btn-blue call-pricerequest" data-hotelid="12099" onclick="ga('send', { 'hitType': 'event', 'eventCategory': 'YCG', 'eventAction': 'Click', 'eventLabel': 'Gửi yêu cầu' }); dataLayer.push({ 'event': 'priceRequest', 'eventCatelogy': 'tracking', 'eventAction': 'clickButtonRequest', 'eventLabel': 'priceRequestLabel' });">Gửi yêu cầu</a>
-                        </td>
-                    </tr>
-                    <tr class="htdt-room-detail">
-                        <td colspan="3" class="w820">
-                                
-                                    <div class="htdt-room-faci">
-                                        <h3 class="font-size-14 font-bold">Tiện nghi phòng</h3>
-                                        <ul class="font-size-12 faci-detail color-green">
-                                                <li>Cửa sổ mở</li>
-                                                <li>Vòi hoa sen và bồn tắm tách biệt</li>
-                                                <li>Vòi hoa sen</li>
-                                                <li>TV</li>
-                                                <li>Wireless / WiFi</li>
-                                                <li>Mini bar</li>
-                                                <li>Lò sưởi</li>
-                                                <li>Áo choàng tắm</li>
-                                                <li>Bàn viết</li>
-                                                <li>Quạt điện</li>
-                                                <li>Máy pha Trà / cà phê</li>
-                                                <li>Truyền hình vệ tinh / cáp</li>
-                                                <li>Không hút thuốc/ phòng hút thuốc theo yêu cầu</li>
-                                                <li>Máy sấy tóc</li>
-                                        </ul>
-                                    </div>
-                                
-                                                            
-                                    <div class="htdt-room-desc">
-                                        <h3 class="font-size-14 font-bold">Mô tả phòng</h3>
-                                        <p class="font-size-12 desc-detail">
-                                            Phòng Standard. Diện tích: 26m2. Phòng có 1 giường đơn hoặc 2 giường đôi, sàn gỗ với đầy đủ tiện nghi cơ bản.
-                                        </p>
-                                    </div>
-                                
-                                                        <div class="htdt-room-beds">
-                                <ul>
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="htdt-room " data-roomid="63281">
-                        <td class="w460 htdt-room-name">
-                            <h3>Deluxe Room</h3>
-                                <span><b>2 người</b> (Tối đa 2)</span>
-                        </td>
-                        
-                        <td class="w180 htdt-room-price">
-                                <span class="font-size-12 color-red">
-                                    LIÊN HỆ<br><a href="tel:0839308290" class="font-size-16 font-bold color-red cr-red">(08) 3930 8290</a>
-                                </span>
-                        </td>
-                        <td class="w180 htdt-room-ctrl">
-                            <a href="javascript:;" class="htdt-room-button btn-blue call-pricerequest" data-hotelid="12099" onclick="ga('send', { 'hitType': 'event', 'eventCategory': 'YCG', 'eventAction': 'Click', 'eventLabel': 'Gửi yêu cầu' }); dataLayer.push({ 'event': 'priceRequest', 'eventCatelogy': 'tracking', 'eventAction': 'clickButtonRequest', 'eventLabel': 'priceRequestLabel' });">Gửi yêu cầu</a>
-                        </td>
-                    </tr>
-                    <tr class="htdt-room-detail">
-                        <td colspan="3" class="w820">
-                                
-                                    <div class="htdt-room-faci">
-                                        <h3 class="font-size-14 font-bold">Tiện nghi phòng</h3>
-                                        <ul class="font-size-12 faci-detail color-green">
-                                                <li>Bàn viết</li>
-                                                <li>Không hút thuốc/ phòng hút thuốc theo yêu cầu</li>
-                                                <li>Quạt điện</li>
-                                                <li>Lò sưởi</li>
-                                                <li>Vòi hoa sen và bồn tắm tách biệt</li>
-                                                <li>Máy sấy tóc</li>
-                                                <li>Vòi hoa sen</li>
-                                                <li>Mini bar</li>
-                                                <li>Quay số</li>
-                                                <li>Ban công / Sân</li>
-                                                <li>Máy pha Trà / cà phê</li>
-                                                <li>Wireless / WiFi</li>
-                                                <li>Truyền hình vệ tinh / cáp</li>
-                                                <li>Áo choàng tắm</li>
-                                                <li>TV</li>
-                                        </ul>
-                                    </div>
-                                
-                                                            
-                                    <div class="htdt-room-desc">
-                                        <h3 class="font-size-14 font-bold">Mô tả phòng</h3>
-                                        <p class="font-size-12 desc-detail">
-                                            Phòng Deluxe. Diện tích: 32m2. Phòng có 1 giường đôi hoặc 2 giường đơn, cửa sổ rộng hướng núi, sàn gỗ với đầy đủ tiện nghi.
-                                        </p>
-                                    </div>
-                                
-                                                        <div class="htdt-room-beds">
-                                <ul>
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                
             </tbody>
         </table>
         
@@ -1022,24 +913,24 @@
     <!-- END GLOBAL -->
 
 <!-- BEGIN JAVASCRIPT -->
-    <script src="res.ivivu.com/hotel/vendor/jquery-1.11.2.min.js" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/vendor/moment/moment.js" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/vendor/moment/locale/vi.js" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/vendor/bootstrap.datetimepicker.min.js" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/vendor/mcustomscrollbar/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
-    <script src="maps.google.com/maps/api/js?sensor=false&amp;language=vi"></script><script src="https://maps.gstatic.com/maps-api-v3/api/js/20/11c/intl/vi_ALL/main.js"></script>
-    <script src="res.ivivu.com/hotel/vendor/gmap3.min.js"></script>
+    <script src="//res.ivivu.com/hotel/vendor/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/vendor/moment/moment.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/vendor/moment/locale/vi.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/vendor/bootstrap.datetimepicker.min.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/vendor/mcustomscrollbar/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
+    <script src="//maps.google.com/maps/api/js?sensor=false&amp;language=vi"></script><script src="https://maps.gstatic.com/maps-api-v3/api/js/20/11c/intl/vi_ALL/main.js"></script>
+    <script src="//res.ivivu.com/hotel/vendor/gmap3.min.js"></script>
     
-<script src="res.ivivu.com/hotel/vendor/jssor/jssor.js"></script>
-<script src="res.ivivu.com/hotel/vendor/jssor/jssor.slider.min.js"></script>
-<script src="res.ivivu.com/hotel/vendor/sweetalert/sweet-alert.min.js"></script>
-<script src="s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54ad075c550548bb" async="async"></script>
+<script src="//res.ivivu.com/hotel/vendor/jssor/jssor.js"></script>
+<script src="//res.ivivu.com/hotel/vendor/jssor/jssor.slider.min.js"></script>
+<script src="//res.ivivu.com/hotel/vendor/sweetalert/sweet-alert.min.js"></script>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54ad075c550548bb" async="async"></script>
 
 
-    <script src="res.ivivu.com/hotel/js/0.0.1/static.min.js?v=0.0.1.2" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/js/0.0.1/common.min.js" type="text/javascript"></script>
-    <script src="res.ivivu.com/hotel/js/0.0.1/searchbox.min.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/js/0.0.1/static.min.js?v=0.0.1.2" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/js/0.0.1/common.min.js" type="text/javascript"></script>
+    <script src="//res.ivivu.com/hotel/js/0.0.1/searchbox.min.js" type="text/javascript"></script>
 
     
 <script src="//res.ivivu.com/hotel/js/0.0.1/hoteldetail.min.js"></script>
@@ -1049,6 +940,7 @@
     
 
 <!-- END JAVASCRIPT -->
+
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -1061,6 +953,8 @@
         ga('send', 'pageview');
 
     </script>
+     
+    
     <!-- Facebook Tracking Event Section -->
     
     

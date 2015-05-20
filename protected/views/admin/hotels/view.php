@@ -27,7 +27,8 @@ $this->menu=array(
 		'address',
 		'description',
 		'rank',
-		
+		'logo',
+            'tel',
 		'aver_point',
 	),
 )); ?>

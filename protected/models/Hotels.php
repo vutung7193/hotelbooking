@@ -22,7 +22,7 @@
  * @property Rooms2[] $rooms2s
  */
 class Hotels extends CActiveRecord
-{
+{     public $avatarUpload;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -42,7 +42,8 @@ class Hotels extends CActiveRecord
 			array('name, City, address, description, rank', 'required'),
 			array('rank', 'numerical', 'integerOnly'=>true),
 			array('aver_point', 'numerical'),
-			array('name, City, address', 'length', 'max'=>500),
+			array('name, City, address, logo, tel', 'length', 'max'=>500),
+                          array('avatarUpload', 'file', 'types' => 'jpg, gif, png', 'allowEmpty' => TRUE),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, City, address, description, rank, aver_point', 'safe', 'on'=>'search'),
@@ -59,9 +60,9 @@ class Hotels extends CActiveRecord
 		return array(
 			'comments' => array(self::HAS_MANY, 'Comments', 'hotel_id'),
 			'hotelConvenients' => array(self::HAS_MANY, 'HotelConvenient', 'hotel_id'),
-			'images' => array(self::HAS_MANY, 'Image', 'hotel_id'),
+//			'images' => array(self::HAS_MANY, 'Image', 'hotel_id'),
 			'rooms' => array(self::HAS_MANY, 'Rooms', 'hotel_id'),
-			'rooms2s' => array(self::HAS_MANY, 'Rooms2', 'hotel_id'),
+//			'rooms2s' => array(self::HAS_MANY, 'Rooms2', 'hotel_id'),
 		);
 	}
 
@@ -77,7 +78,8 @@ class Hotels extends CActiveRecord
 			'address' => 'Address',
 			'description' => 'Description',
 			'rank' => 'Rank',
-			
+			'logo' => 'Logo',
+                    'tel' => 'Tel',
 			'aver_point' => 'Aver Point',
 		);
 	}
@@ -113,6 +115,19 @@ class Hotels extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+           protected function beforeSave()
+        {
+            $this->avatarUpload = CUploadedFile::getInstance($this, 'logo');
+            if (isset($this->avatarUpload)) {
+                $fileName     = $this->avatarUpload->name;
+                $uploadFolder = Yii::getPathOfAlias('webroot') . DIRECTORY_SEPARATOR . 'Upload' . DIRECTORY_SEPARATOR . date('Y-m-d');
+                if (!is_dir($uploadFolder)) { mkdir($uploadFolder, 0755, TRUE); }
+                $uploadFile = $uploadFolder . DIRECTORY_SEPARATOR . $fileName;
+                $this->avatarUpload->saveAs($uploadFile); //Upload file thong qua object CUploadedFile
+                $this->logo = '/Upload/' . date('Y-m-d') . '/' . $fileName; //Lưu path vào csdl
+            }
+            return parent::beforeSave();
+        }
 
 	/**
 	 * Returns the static model of the specified AR class.

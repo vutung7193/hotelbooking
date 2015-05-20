@@ -29,8 +29,8 @@
 	<?php echo CHtml::encode($data->rank); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('total_cmt')); ?>:</b>
-	<?php echo CHtml::encode($data->total_cmt); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('tel')); ?>:</b>
+	<?php echo CHtml::encode($data->tel); ?>
 	<br />
 
 	<?php /*

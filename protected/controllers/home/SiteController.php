@@ -51,9 +51,11 @@
                                   $arr[] = $low->price;
                               }
                               $minprice = min($arr);
+                              $img = Rooms::model()->findAll("hotel_id = {$model->id}");
                               
                   $this->render('hotelDetail', array('model'=>$model,
                       'minprice'=>$minprice,
+                      'img'=>$img,
                       )
                       
                   );
