@@ -30,12 +30,22 @@
        ));
         }
         
-         public function actionSuccess()
+         public function actionSuccess($bookingdetail_id)
         {
+            
+          
+             $bookingdetail = BookingDetail::model()->findByPk($bookingdetail_id);
+             $booking = Booking::model()->findByPk($bookingdetail->booking_id);
+             
+                $room = Rooms::model()->findByPk($booking->room_id);
+                 $hotel = Hotels::model()->findByPk($room->hotel_id);
+             
     $this->pageTitle = 'Booking rooms';
 //    $model = Hotels::model()->findAll();
     
-       $this->render('success');
+       $this->render('success',array('hotel'=>$hotel,
+           'room'=>$room,
+           'bookingdetail'=>$bookingdetail,));
 //       $this->redirect('index');
         }
           
@@ -52,10 +62,46 @@
                               }
                               $minprice = min($arr);
                               $img = Rooms::model()->findAll("hotel_id = {$model->id}");
+//                            $roomAvai1 = Rooms::model()->findAll("hotel_id = {$model->id}");
+                            
+                      $checkin ='2015-05-21';
+                        $checkout = '2015-05-24';
+                      
+                   if(isset($_POST['submit'])){
+                  $checkin1 = $_POST['datepicker-detail-chkin'];
+                  $checkin = date("Y-m-d", strtotime($checkin1) );
+                  
+                 $checkout1 = $_POST['datepicker-detail-chkout'];
+                 $checkout = date("Y-m-d", strtotime($checkout1) );
+                   }
+                   
+                      $query = "(SELECT distinct t1.room_id as r1 FROM `tbl_booking` as t1 "
+                        . "WHERE  t1.room_id not in (Select t2.room_id as r2 From `tbl_booking` as t2 "
+                        . "Where t1.room_id = t2.room_id and ( '$checkin' >= t2.date_from and '$checkin' < t2.date_to ) or ('$checkout' > t2.date_from and '$checkout' <= t2.date_to ) )"
+                        . "And t1.room_id IN ( Select t3.id from tbl_rooms as t3 where t3.hotel_id = $model->id) ) "
+                        . "UNION "
+                        . "( select r3.id from tbl_rooms as r3 "
+                        . "where r3.hotel_id = $model->id "
+                        . "and r3.id not IN ( SELECT distinct t4.room_id FROM `tbl_booking` as t4 ) ) ";
+//                  $query = "(SELECT distinct t1.room_id as r1 FROM `tbl_booking` as t1 WHERE ( t1.room_id not in (Select t2.room_id as r2 From `tbl_booking` as t2 Where t1.room_id = t2.room_id and t1.id != t2.id and ( '$checkin' >= t2.date_from and '$checkin' < t2.date_to ) or ('$checkout' > t2.date_from and '$checkout' <= t2.date_to ) ) ) And t1.room_id IN ( Select t3.id from tbl_rooms as t3 where t3.hotel_id = $model->id) )UNION ( select r3.id from tbl_rooms as r3 where r3.id not IN ( SELECT distinct t4.room_id FROM `tbl_booking` as t4 ) ) ";
+                    $roomAvail = Yii::app()->db->createCommand($query)->queryAll();
+                
+                              $roomAvai = Rooms::model()->findAll("hotel_id = {$model->id}");
+                              $hotelCon = HotelConvenient::model()->findAll("hotel_id = {$model->id}");
+                              $com = Comments::model()->findAll("hotel_id = {$model->id}");
+                              $total = count($com);
+                              
                               
                   $this->render('hotelDetail', array('model'=>$model,
                       'minprice'=>$minprice,
                       'img'=>$img,
+                      'hotelCon' =>$hotelCon,
+                      'com'=>$com,
+                      'total'=>$total,
+                        'roomAvail'=>$roomAvail,
+                      'checkin'=>$checkin,
+                      'checkout'=>$checkout,
+//                   'roomAvai'=>$roomAvai,
                       )
                       
                   );
@@ -81,7 +127,7 @@ $criteria->params[':name']='%'.$key.'%';
              
                
             } else {
-                throw new CHttpException(400, 'Ban phai nhap tu khoa tim kiem');
+                throw new CHttpException(400, 'YOU MUST ENTER SEARCHING KEYWORD');
             }
                           
           $this->render('search',array(

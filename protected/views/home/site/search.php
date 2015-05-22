@@ -64,32 +64,54 @@
         <!-- END HOTLINE -->
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation pull-left font-transform-inherit">
-            <ul>
-                <li class="active">
-                    <a href="">
-                        Hotels
+              <ul>
+                 <li class="active">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>">
+                        Homepage
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         Contact
                     </a>
                 </li>
-                <li>
-                    <a href="">
+                 <li>
+                    <a href="#">
                         Help
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                       Login
+                <?php 
+                if(Yii::app()->user->isGuest){
+                ?>
+                 <li>
+                    <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/user/login">
+                        Login
                     </a>
                 </li>
-                  <li>
-                    <a href="">
-                       register
+                 <li>
+                    <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/user/registration">
+                        Register
                     </a>
                 </li>
+                <?php }?>
+               <?php if( !Yii::app()->user->isGuest){
+                   
+                   ?>
+             <li class="dropdown" style="margin-right:  50px">
+                    <a class="dropdown-toggle menu-more" data-toggle="dropdown" href="javascript:;">
+                        <i style="font-size: 12px"><img src="<?php echo Yii::app()->baseUrl?>/img/profile_icon.png" width="40px" height="40px" >welcome,</i>
+                        
+                        <i><?php echo Yii::app()->user->name; ?>!</i>
+                         <!--<li><a href="">Profile</li>-->
+                    </a>
+                    <ul class="dropdown-menu bullet">
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
+                    </ul>
+                </li>
+               <?php }?>
                 
             </ul>
         </div>

@@ -60,23 +60,20 @@ class CommentsController extends HomeController
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($hotel_id)
 	{
 		$model=new Comments;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		if(isset($_POST['Comments']))
-		{$model->hotel_id = $_POST['hotel_id'];
-			$model->attributes=$_POST['Comments'];
+		if(isset($_POST['submit']))
+		{$model->hotel_id = $hotel_id;
+			$model->point = $_POST['point'];
+                        $model->content = $_POST['content'];
                          $model->user_id = Yii::app()->user->id;
-                      
-//                      $hotel = Hotels::model()->findByPk($model->hotel_id);
-//                      $hotel->total_cmt = 1;
-//                      $hotel->total_point = 6;
-//                      $hotel->aver_point = $hotel->total_point /  $hotel->total_cmt;
+                
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect('http://localhost/hotel6/index.php');
 		}
 
 		$this->render('create',array(

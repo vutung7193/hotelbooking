@@ -60,22 +60,24 @@ class BookingController extends HomeController
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($room_id,$checkin,$checkout)
 	{
 		$model=new Booking;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Booking']))
+		if(isset($_POST['booking']))
 		{
-			$model->attributes=$_POST['Booking'];
+//			$model->attributes=$_POST['booking'];
                         $model->user_id = Yii::app()->user->id;
                          $model->status = 0;
-                      $model->room_id = $_POST['room_id'];
-                     
+                         $model->date_from = $checkin;
+                         $model->date_to = $checkout;
+                      $model->room_id = $room_id;
+                     $model->person_no = 3;
 			if($model->save())
-				$this->redirect('../site/success');
+				$this->redirect(array('/bookingdetail/create','booking_id'=>$model->id));
 		}
 
 		$this->render('create',array(

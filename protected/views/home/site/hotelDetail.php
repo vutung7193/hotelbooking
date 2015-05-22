@@ -78,9 +78,9 @@
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation pull-left font-transform-inherit">
             <ul>
-                <li class="active">
-                    <a href="#">
-                        Hotels
+                 <li class="active">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>">
+                        Homepage
                     </a>
                 </li>
                 <li>
@@ -93,28 +93,39 @@
                         Help
                     </a>
                 </li>
+                <?php 
+                if(Yii::app()->user->isGuest){
+                ?>
                  <li>
-                    <a href="#">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/user/login">
                         Login
                     </a>
                 </li>
                  <li>
-                    <a href="#">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/user/registration">
                         Register
                     </a>
                 </li>
-                
-               
-<!--                <li class="dropdown">
+                <?php }?>
+               <?php if( !Yii::app()->user->isGuest){
+                   
+                   ?>
+             <li class="dropdown" style="margin-right:  50px">
                     <a class="dropdown-toggle menu-more" data-toggle="dropdown" href="javascript:;">
-                        <i class="sprites icn-menu-threedots"></i>
+                        <i style="font-size: 12px"><img src="<?php echo Yii::app()->baseUrl?>/img/profile_icon.png" width="40px" height="40px" >welcome,</i>
+                        
+                        <i><?php echo Yii::app()->user->name; ?>!</i>
+                         <!--<li><a href="">Profile</li>-->
                     </a>
                     <ul class="dropdown-menu bullet">
-                        <li><a href="//www.ivivu.com/gioi-thieu">Giới thiệu</a></li>
-                        <li><a href="//www.ivivu.com/hoi-dap">Hỏi đáp</a></li>
-                        <li><a href="//www.ivivu.com/ho-tro">Hỗ trợ</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>
-                </li>-->
+                </li>
+               <?php }?>
+                
             </ul>
         </div>
         <!-- END NAVIGATION -->
@@ -345,6 +356,7 @@
 <section class="htdt-price-lbl">
     <!--<h2>Giá phòng tại <strong>Khách sạn Asiana Sapa Thác Bạc</strong></h2>-->
 </section>
+  
 <section class="htdt-price">
     <article class="searchbox">
         <div class="searchbox-wrap clearfix">
@@ -353,57 +365,17 @@
                     <ul>
                         <li class="font-size-12 font-bold lbl-search">Check In</li>
                         <li class="date-detail-checkin">
-                            <input type="text" id="datepicker-detail-chkin" name="datepicker-detail-chkin" class="datepicker-chkin" value="22-05-2015">
+                            <input type="text" id="datepicker-detail-chkin" name="datepicker-detail-chkin" class="datepicker-chkin" value="">
                             <i class="sprites icn-datecheckin"></i>
                         </li>
                     </ul>
                 </div>
-<!--                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hide">
-                    <ul>
-                        <li class="font-size-12 font-bold lbl-search">Số đêm</li>
-                        <li>
-                            <select id="datepicker-detail-nights" name="datepicker-detail-nights" class="datepicker-nights">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9" selected="">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                        <option value="24">24</option>
-                                        <option value="25">25</option>
-                                        <option value="26">26</option>
-                                        <option value="27">27</option>
-                                        <option value="28">28</option>
-                                        <option value="29">29</option>
-                                        <option value="30">30</option>
 
-                                <option value="0">30+</option>
-                            </select>
-                        </li>
-                    </ul>
-                </div>-->
                 <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
                     <ul>
                         <li class="font-size-12 font-bold lbl-search">Check Out</li>
                         <li class="date-detail-checkout">
-                            <input type="text" id="datepicker-detail-chkout" name="datepicker-detail-chkout" class="datepicker-chkout" value="31-05-2015">
+                            <input type="text" id="datepicker-detail-chkout" name="datepicker-detail-chkout" class="datepicker-chkout" value="">
                             <i class="sprites icn-datecheckout"></i>
                         </li>
                     </ul>
@@ -411,7 +383,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                     <ul>
                         <li class="font-size-12">&nbsp;</li>
-                        <li><input type="submit" value="Search" class="btn-orange bdr-orange font-bold"></li>
+                        <li><input type="submit" name ="submit" value="Search" class="btn-orange bdr-orange font-bold"></li>
                     </ul>
                 </div>
             </form>
@@ -428,60 +400,77 @@
         <table class="table-bordered mrg-lr-auto">
             <thead>
                 <tr>
-                    <th class="w460">Room Available</th>
+                    <th class="w460">Room Available
+               
+             
+                    </th>
                     
                     <th class="w180">Price</th>
-                    <th class="w180">Booking</th>
+                    <th class="w180">Booking </th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+             
+                 
+//                     echo $checkin;
+                             
+                             
+                         foreach ($roomAvail as $roomAvail){
+                             $roomAvail2 = Rooms::model()->findByPk($roomAvail['r1']);
+                            
+                             ?>
+                     
                     <tr class="htdt-room " data-roomid="60779">
                         <td class="w460 htdt-room-name">
-                            <h3>Superior Room</h3>
-                                <span><b>2 người</b> (Tối đa 2)</span>
+                            <h3><?php echo $roomAvail2->name; ?></h3>
+                              
                         </td>
                         
                         <td class="w180 htdt-room-price">
                                 <span class="font-size-12 color-red">
-                                    LIÊN HỆ<br><a href="tel:0839308290" class="font-size-16 font-bold color-red cr-red">(08) 3930 8290</a>
+                                    <a href="#" class="font-size-16 font-bold color-red cr-red"><?php echo $roomAvail2->price; ?> VND</a>
                                 </span>
                         </td>
                         <td class="w180 htdt-room-ctrl">
-                            <a href="javascript:;" class="htdt-room-button btn-blue call-pricerequest" data-hotelid="12099" onclick="ga('send', { 'hitType': 'event', 'eventCategory': 'YCG', 'eventAction': 'Click', 'eventLabel': 'Gửi yêu cầu' }); dataLayer.push({ 'event': 'priceRequest', 'eventCatelogy': 'tracking', 'eventAction': 'clickButtonRequest', 'eventLabel': 'priceRequestLabel' });">Gửi yêu cầu</a>
-                        </td>
+                            <form method="post" name="booking" action="<?php echo $this->createUrl('/booking/create', array('room_id' =>$roomAvail2->id,'checkin'=>$checkin,'checkout'=>$checkout)) ?>">
+                            <!--<a href="javascript:;" class="htdt-room-button btn-blue call-pricerequest" data-hotelid="12099" onclick="ga('send', { 'hitType': 'event', 'eventCategory': 'YCG', 'eventAction': 'Click', 'eventLabel': 'Booking Now' }); dataLayer.push({ 'event': 'priceRequest', 'eventCatelogy': 'tracking', 'eventAction': 'clickButtonRequest', 'eventLabel': 'priceRequestLabel' });">Booking Now</a>-->
+<input type="submit" class="htdt-room-button btn-blue" name="booking" value="Booking Now">
+                      </form>  
+                            <!--<a href="<?php echo $this->createUrl('/booking/create', array('room_id' =>$roomAvail2->id,'checkin'=>$checkin,'checkout'=>$checkout)) ?>" class="htdt-room-button btn-blue">Booking N</a>-->
+                            
+</td>
                     </tr>
                     <tr class="htdt-room-detail">
                         <td colspan="3" class="w820">
                                 
                                     <div class="htdt-room-faci">
-                                        <h3 class="font-size-14 font-bold">Tiện nghi phòng</h3>
+                                        <h3 class="font-size-14 font-bold">Amenities of Room</h3>
                                         <ul class="font-size-12 faci-detail color-green">
-                                                <li>Vòi hoa sen và bồn tắm tách biệt</li>
-                                                <li>Quạt điện</li>
-                                                <li>Máy sấy tóc</li>
-                                                <li>Bồn tắm</li>
-                                                <li>Máy pha Trà / cà phê</li>
-                                                <li>Cửa sổ mở</li>
-                                                <li>Wireless / WiFi</li>
-                                                <li>Mini bar</li>
-                                                <li>TV</li>
-                                                <li>Vòi hoa sen</li>
-                                                <li>Quay số</li>
-                                                <li>Truyền hình vệ tinh / cáp</li>
-                                                <li>Lò sưởi</li>
-                                                <li>Không hút thuốc/ phòng hút thuốc theo yêu cầu</li>
-                                                <li>Bàn viết</li>
-                                                <li>Ban công / Sân</li>
+                                            <?php 
+                                            $temp = RoomConvenient::model()->findAll("room_id = {$roomAvail2->id}");
+                                            foreach($temp as $temp){
+                                               ?>
+                                            <li><?php echo Convenient::model()->findByPk($temp->id)->name; ?></li>
+                                            <?php 
+                                            }
+                                            ?>
+                                             
                                         </ul>
                                     </div>
                                 
                                                             
                                     <div class="htdt-room-desc">
-                                        <h3 class="font-size-14 font-bold">Mô tả phòng</h3>
+                                        <h3 class="font-size-14 font-bold">Description</h3>
                                         <p class="font-size-12 desc-detail">
-                                            Phòng Superior. Diện tích: 28m2. Phòng rộng rãi với sàn gỗ, 1 giường đơn hoặc 2 giường đôi, đầy đủ tiện nghi.
+                                            <?php echo $roomAvail2->description; ?>
                                         </p>
                                     </div>
+                            <div class="htdt-room-desc">
+                                        <h3 class="font-size-14 font-bold">Image</h3>
+                                        <img src="<?php echo Yii::app()->baseUrl.$roomAvail2->logo; ?>">
+                                
+                            </div>
                                 
                                                         <div class="htdt-room-beds">
                                 <ul>
@@ -490,6 +479,8 @@
                             </div>
                         </td>
                     </tr>
+                  <?php      }
+                ?>
                 
             </tbody>
         </table>
@@ -497,181 +488,136 @@
     </article>
 </section><section class="htdt-facility clearfix bg-white br-8 mrg-b-15 pad-tb-15">
     <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 mrg-b-15">
-        <h3 class="color-darkblue font-size-18 font-bold">Tiện ích của Khách sạn Asiana Sapa Thác Bạc</h3>
+        <h3 class="color-darkblue font-size-18 font-bold ">Amenities in <?php echo $model->name; ?></h3>
     </article>
     <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 htdt-fac-cnt">
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i>Đường dẫn vào bãi đậu xe</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i>Sảnh Đến / đi</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i>Tầng/Khu vực Không hút thuốc</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i>Bộ phận Trợ giúp khách hàng</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i>Dịch vụ vận chuyển hành lý</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i>Bãi đậu xe</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Giặt khô / dịch vụ giặt ủi</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Phòng gửi Hành lý</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Nhà hàng</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Lễ Tân phục vụ 24 giờ</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Dịch vụ dọn phòng - giới hạn</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Truy cập Wifi</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Dịch vụ văn phòng</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Café</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Quầy bán Tour</div>
-            <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 hide"><i class="sprites icn-stick-12"></i>Dịch vụ tự giặt ủi</div>
+        <?php 
+        
+        foreach($hotelCon as $hotelCon)
+        {
+            
+?>
+        <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i><?php echo Convenient::model()->findByPk($hotelCon->convenient_id)->name;?></div>
+            <?php     }
+?> 
     </article>
-    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
+<!--    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
         <div class="htdt-fac-showmore">
             <a href="javascript:;" class="htdt-fac-showmore-btn pad-tb-8 pad-lr-30 br-4 mrg-t-15">Xem tất cả</a>
         </div>
-    </article>
+    </article>-->
 </section>
    <section class="htdt-description clearfix bg-white br-8 mrg-b-15 pad-tb-15 " itemprop="description">
     <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 mrg-b-15">
-        <h3 class="color-darkblue font-size-18 font-bold">Thông tin Khách sạn Asiana Sapa Thác Bạc</h3>
+        <h3 class="color-darkblue font-size-18 font-bold">About <?php echo $model->name; ?></h3>
     </article>
     <div class="pad-lr-15 txt-justify">
-        <p>Nằm ở trung tâm nhộn nhịp của thị trấn Sapa, <strong>khách sạn Asiana Sapa Thác Bạc</strong> 3 sao có một vị trí thực sự tuyệt vời, cung cấp một lựa chọn chỗ ở lý tưởng cho du khách, sự kết hợp giữa chỗ ở tiện nghi, giá cả hợp lý, vị trí thuận tiện với 21 phòng nghỉ rộng rãi. Nghỉ tại Asiana Sapa Thác Bạc khách sạn mang đến cho bạn trải nghiệm đầy cảm hứng từ lịch sử và văn hóa của Sapa, nhiều điểm thăm quan thu hút khách du lịch ở khu lân cận như: Trung tâm văn hoá Sapa, chợ tình (03 phút đi bộ), Nhà thờ đá (03 phút đi bộ), Núi Hàm Rồng (đi bộ 05 phút), Bản Cát Cát (đi bộ 35 phút), Bản Lao Chải, xã Tả Van (đi bộ 30 phút)...</p>
+        <p><?php echo $model->description; ?></p>
     </div>
 </section>
-
-<section class="htdt-policy clearfix bg-white br-8 mrg-b-15 pad-tb-15">
+     <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
+         <h3 class="color-darkblue font-size-18 font-bold" id = "comment">Comments Here </h3><br>
+        <form name ="comment" method="post" action="<?php echo $this->createUrl('/comments/create', array('hotel_id' =>$model->id)) ?>">
+            <textarea style="width: 500px; height: 100px" name="content"placeholder="Enter comment here..." ></textarea><br><br>
+<!--            <input type="number" name="point" value=""><br>-->
+            <span style="font-weight:bold; color: #06c"> Rate Point: </span> <select name="point">
+                 
+  <option  value="5">5</option>
+   <option  value="6">6</option>
+  <option value="7">7</option>
+   <option  value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+ 
+</select> 
+           <input type="submit" name="submit" value="send" style="font: bold; width: 100px;">
+        
+        </form>
+        
+    </article>
+<section id="review" class="htdt-review clearfix bg-white br-8 mrg-b-15 pad-tb-15">
     <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 mrg-b-15">
-        <h3 class="color-darkblue font-size-18 font-bold">Chính sách của Khách sạn Asiana Sapa Thác Bạc</h3>
+        <h3 class="color-darkblue font-size-18 font-bold">Another comments</h3>
     </article>
-    <article class="clearfix bdr-b-d mrg-lr-15 mrg-b-8 pad-b-8">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-xl-4 font-bold">
-            Thời gian nhận phòng
-        </div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-xl-8 txt-justify">
-            14:00
-        </div>
-    </article>
-    <article class="clearfix bdr-b-d mrg-lr-15 mrg-b-8 pad-b-8">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-xl-4 font-bold">
-            Thời gian trả phòng
-        </div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-xl-8 txt-justify">
-            12:00
-        </div>
-    </article>
-                <article class="clearfix bdr-b-d mrg-lr-15 mrg-b-8 pad-b-8">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-xl-4 font-bold">
-                        Hoạt động giải trí
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 col-xl-8 txt-justify">
-                        Trung tâm văn hoá Sapa, chợ tình (03 phút đi bộ), Nhà thờ đá (03 phút đi bộ), Núi Hàm Rồng (đi bộ 05 phút), Bản Cát Cát (đi bộ 35 phút), Bản Lao Chải, xã Tả Van (đi bộ 30 phút)...
-                    </div>
-                </article>
-                <article class="clearfix bdr-b-d mrg-lr-15 mrg-b-8 pad-b-8">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-xl-4 font-bold">
-                        Bãi đậu xe
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 col-xl-8 txt-justify">
-                        Không có bãi đỗ xe.
-                    </div>
-                </article>
-                <article class="clearfix bdr-b-d mrg-lr-15 mrg-b-8 pad-b-8">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-xl-4 font-bold">
-                        Đường tới
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 col-xl-8 txt-justify">
-                        Có thể đến Sapa Lào Cai bằng xe khách, tàu hỏa, taxi...
-                    </div>
-                </article>
-                <article class="clearfix mrg-lr-15">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-xl-4 font-bold">
-                        Hướng dẫn nhận phòng
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 col-xl-8 txt-justify">
-                        Khách muốn nhận phòng sớm hoặc trả phòng muộn vui lòng liên hệ và trả phí trực tiếp tại khách sạn.
-                    </div>
-                </article>
-</section><section id="review" class="htdt-review clearfix bg-white br-8 mrg-b-15 pad-tb-15">
-    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 mrg-b-15">
-        <h3 class="color-darkblue font-size-18 font-bold">Cảm nhận khách hàng về Khách sạn Asiana Sapa Thác Bạc</h3>
-    </article>
+   
             <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
+                <?php
+                foreach ($com as $com){
+                    ?>   
+            
     <div class="htdt-rev-item bdr-lb-d8">
-            <div class="htdt-rev-point">9.0</div>
+            <div class="htdt-rev-point"><?php echo $com->point; ?></div>
         <div class="htdt-rev-title">
-            <strong>Erika P</strong>
-                <span class="font-size-12 cl-gray-d">22-07-2014</span>
+            <strong><?php echo User::model()->findByPk($com->user_id)->username;?></strong>
+                <!--<span class="font-size-12 cl-gray-d">22-07-2014</span>-->
         </div>
         <div class="htdt-rev-cont txt-justify">
-                <b class="color-blue">Tuyệt vời</b> 
-            Nhân viên Khách sạn rất thân thiện , khung cảnh có thể ngắm nhìn núi .Người quản lý đi cùng với chúng tôi để giúp đỡ mọi thứ, và sắp xếp xe cho chúng tôi trở về Hà Nội mà không có thêm bất cứ vấn đề gì, mọi thứ đều rất ổn . Khách sạn này chắc chắn là một nơi rất tuyệt vời để ở lại khi bạn đến Sapa!!!!
+                <!--<b class="color-blue">Tuyệt vời</b>--> 
+           <?php echo $com->content; ?>
 
         </div>
     </div>
-    <div class="htdt-rev-item bdr-lb-d8">
-            <div class="htdt-rev-point">9.0</div>
-        <div class="htdt-rev-title">
-            <strong>Tuyết N </strong>
-                <span class="font-size-12 cl-gray-d">10-07-2014</span>
-        </div>
-        <div class="htdt-rev-cont txt-justify">
-                <b class="color-blue">Tuyệt vời</b> 
-            Khách sạn là rất sạch sẽ, nhìn ra núi. Các nhân viên rất thân thiện, sẵn sàng giúp đỡ bất cứ khi nào chúng ta cần và cho những lời khuyên hữu ích về các địa điểm tham quan.
-        </div>
-    </div>
-    <div class="htdt-rev-item bdr-lb-d8">
-            <div class="htdt-rev-point">9.0</div>
-        <div class="htdt-rev-title">
-            <strong>Jomin J </strong>
-                <span class="font-size-12 cl-gray-d">06-08-2014</span>
-        </div>
-        <div class="htdt-rev-cont txt-justify">
-                <b class="color-blue">Tuyệt vời</b> 
-            Phòng lớn và sạch sẽ. Nhân viên thân thiện và đáng yêu, rất nhiệt tình với khách hàng. Mọi thứ nơi đây đều tuyệt vời.
-        </div>
-    </div>
+                <?php     }
+                ?>
+   
             </article>
 </section>
 
 </aside>    <aside class="htdt-right col-xs-12 col-sm-12 col-md-3 col-lg-3">
 <section class="htdt-control">
-    <span>Contact Hotline<a href="tel:0988332563"><span style="color: red">0988.332.563</span></a></span>
+    <span>Contact Hotline<a href="tel:0988332563"><span style="color: red"><?php echo $model->tel; ?></span></a></span>
 <!--    <button class="pad-tb-4 pad-lr-15 uppercase btn-orange call-pricerequest" data-hotelid="12099" onclick="ga('send', { 'hitType': 'event', 'eventCategory': 'YCG', 'eventAction': 'Click', 'eventLabel': 'Booking now' }); dataLayer.push({ 'event': 'priceRequest', 'eventCatelogy': 'tracking', 'eventAction': 'clickButtonRequest', 'eventLabel': 'priceRequestLabel' });">
         Booking Now
     </button>-->
-</section>        <section class="htdt-map bg-white br-8 pad-tb-4 pad-lr-4">
+<!--</section>        <section class="htdt-map bg-white br-8 pad-tb-4 pad-lr-4">
                 
                     <div id="gmap3-right" class="mrg-lr-auto" data-lat="22.335998" data-lng="103.839441" style="width: 247px; height: 320px; position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, -27, -13);"><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -55px; top: 61px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -55px; top: -195px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -55px; top: 317px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 201px; top: 61px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 201px; top: -195px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 201px; top: 317px;"></div></div></div></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -55px; top: 61px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -55px; top: -195px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -55px; top: 317px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 201px; top: 61px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 201px; top: -195px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 201px; top: 317px;"></div></div></div></div><div style="position: absolute; z-index: 0; transform: translateZ(0px); left: 0px; top: 0px;"><div style="overflow: hidden; width: 247px; height: 320px;"><img src="https://maps.googleapis.com/maps/api/js/StaticMapService.GetMapImage?1m2&amp;1i6613815&amp;2i3659971&amp;2e1&amp;3u15&amp;4m2&amp;1u247&amp;2u320&amp;5m5&amp;1e0&amp;5svi&amp;6sus&amp;10b1&amp;12b1&amp;token=117653" style="width: 247px; height: 320px;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -55px; top: 61px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i25835!3i14297!2m3!1e0!2sm!3i301000000!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -55px; top: -195px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i25835!3i14296!2m3!1e0!2sm!3i301000000!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -55px; top: 317px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i25835!3i14298!2m3!1e0!2sm!3i301000000!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 201px; top: 61px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i25836!3i14297!2m3!1e0!2sm!3i301000000!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 201px; top: -195px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i25836!3i14296!2m3!1e0!2sm!3i301000000!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 201px; top: 317px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i25836!3i14298!2m3!1e0!2sm!3i301000000!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, -27, -13);"><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="https://maps.google.com/maps?ll=22.335482,103.8406&amp;z=15&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=apiv3" title="Nhấp để xem khu vực này trên Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 100px; bottom: 0px; width: 77px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer;">Dữ liệu Bản đồ</a><span style="display: none;">Dữ liệu bản đồ ©2015 Google</span></div></div></div><div style="padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 193px; height: 148px; position: absolute; left: 5px; top: 70px; background-color: white;"><div style="padding: 0px 0px 10px; font-size: 16px;">Dữ liệu Bản đồ</div><div style="font-size: 13px;">Dữ liệu bản đồ ©2015 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Dữ liệu bản đồ ©2015 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; position: absolute; -webkit-user-select: none; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="https://www.google.com/intl/vi_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Điều khoản sử dụng</a></div></div><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; display: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_new" title="Báo cáo lỗi trong bản đồ đường hoặc hình ảnh đến Google" href="https://www.google.com/maps/@22.335482,103.8405997,15z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Báo cáo một lỗi bản đồ</a></div></div><div class="gmnoprint" draggable="false" controlwidth="32" controlheight="84" style="margin: 5px; -webkit-user-select: none; position: absolute; left: 0px; top: 0px;"><div controlwidth="32" controlheight="40" style="cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; position: absolute; left: 0px; top: 0px;"><div aria-label="Kiểm soát người hình mắc áo trong chế độ xem phố" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div aria-label="Người hình mắc áo bị vô hiệu hóa" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div aria-label="Người hình mắc áo ở đầu Bản đồ" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div aria-label="Kiểm soát người hình mắc áo trong chế độ xem phố" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="0" controlheight="0" style="opacity: 0.6; display: none; position: absolute;"><div title="Xoay bản đồ 90 độ" style="width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="20" controlheight="39" style="position: absolute; left: 6px; top: 45px;"><div style="width: 20px; height: 39px; overflow: hidden; position: absolute;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -39px; top: -401px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Phóng to" style="position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;"></div><div title="Thu nhỏ" style="position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;"></div></div></div><div class="gmnoprint gm-style-mtc" style="margin: 5px; z-index: 0; position: absolute; cursor: pointer; text-align: left; width: 85px; right: 0px; top: 0px;"><div draggable="false" title="Thay đổi kiểu bản đồ" style="direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 1px 6px; border-radius: 2px; -webkit-background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; font-weight: 500; background-color: rgb(255, 255, 255); background-clip: padding-box;">Bản đồ<img src="https://maps.gstatic.com/mapfiles/arrow-down.png" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: -2px 0px 0px; position: absolute; right: 6px; top: 50%; width: 7px; height: 4px;"></div><div style="z-index: -1; padding-top: 2px; -webkit-background-clip: padding-box; border-width: 0px 1px 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: rgba(0, 0, 0, 0.14902); border-bottom-color: rgba(0, 0, 0, 0.14902); border-left-color: rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; position: absolute; top: 100%; left: 0px; right: 0px; text-align: left; display: none; background-color: white; background-clip: padding-box;"><div draggable="false" title="Hiển thị bản đồ phố" style="color: black; font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px; font-weight: 500; background-color: rgb(255, 255, 255);">Bản đồ</div><div draggable="false" title="Hiển thị hình ảnh qua vệ tinh" style="color: black; font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px; background-color: rgb(255, 255, 255);">Vệ tinh</div><div style="margin: 1px 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(235, 235, 235);"></div><div draggable="false" title="Hiển thị bản đồ phố với địa hình" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img src="https://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Địa hình</label></div><div style="margin: 1px 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(235, 235, 235); display: none;"></div><div draggable="false" title="Phóng to để hiển thị chế độ xem 45 độ" style="color: rgb(184, 184, 184); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(241, 241, 241); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img src="https://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">45°</label></div><div draggable="false" title="Hiển thị hình ảnh có tên phố" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img src="https://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Nhãn</label></div></div></div></div></div>
     <a href="javascript:;" class="font-bold font-size-14 pad-tb-8 disp-block txt-center call-modal-map" data-lat="22.335998" data-lng="103.839441">Xem bản đồ</a>
                 
-</section>        <section class="htdt-more pad-t-15 pad-lr-10 bg-white br-8">
-        <article class="htdt-more-item pad-b-15">
-            <a href="//www.ivivu.com/khach-san-sapa/villa-sapa" class="htdt-more-item-avatar">
-                <img src="//cdn1.ivivu.com/Wotif/W568861/prop-img-full-i35km952-5lgndqkr7aio-60x45.jpg" alt="" class="br-4">
-            </a>
-            <div class="htdt-more-item-info">
-                <a href="//www.ivivu.com/khach-san-sapa/villa-sapa" class="htdt-more-item-title font-bold">Villa Sapa</a><i class="sprites icn-star-25"></i>
-            </div>
-            <div class="htdt-more-item-review font-size-12">
-                                            </div>    
-            
-        </article>
-        <article class="htdt-more-item pad-b-15">
-            <a href="//www.ivivu.com/khach-san-sapa/green-valley-224806" class="htdt-more-item-avatar">
-                <img src="//media.expedia.com/hotels/5000000/4740000/4738800/4738709/4738709_2_b.jpg" alt="" class="br-4">
-            </a>
-            <div class="htdt-more-item-info">
-                <a href="//www.ivivu.com/khach-san-sapa/green-valley-224806" class="htdt-more-item-title font-bold">Green Valley</a><i class="sprites icn-star-25"></i>
-            </div>
-            <div class="htdt-more-item-review font-size-12">
-                                            </div>    
-            
-        </article>
-        <article class="htdt-more-item pad-b-15">
-            <a href="//www.ivivu.com/khach-san-sapa/sapa-eden" class="htdt-more-item-avatar">
-                <img src="//media.expedia.com/hotels/5000000/4760000/4757600/4757588/4757588_15_b.jpg" alt="" class="br-4">
-            </a>
-            <div class="htdt-more-item-info">
-                <a href="//www.ivivu.com/khach-san-sapa/sapa-eden" class="htdt-more-item-title font-bold">Sapa Eden</a><i class="sprites icn-star-25"></i>
-            </div>
-            <div class="htdt-more-item-review font-size-12">
-                                            </div>    
-            
-        </article>
-</section>    </aside></section>
+</section>        <section class="htdt-more pad-t-15 pad-lr-10 bg-white br-8">-->
+        
+</section>  
+
+<section class="htdt-point br-8 bg-white pad-tb-15" itemscope="" itemtype="http://data-vocabulary.org/Review-aggregate">
+                <span itemprop="itemreviewed" class="hide"></span>
+                    <div class="htdt-point-badged color-white bg-blue br-8" itemprop="rating" itemscope="" itemtype="http://data-vocabulary.org/Rating">
+                        <strong>
+                            <i itemprop="average"><?php echo number_format($model->aver_point, 2); ?></i>
+                            <span itemprop="best" class="hide">10</span>
+                        </strong>
+                        <span class="font-bold"><?php
+                            if($model->aver_point < 6)
+                                echo 'not good';
+                                else if ($model->aver_point < 8)
+                                    echo 'good';
+                                else echo 'excellent';
+                            
+                            
+                            ?></span>
+                        
+                    </div>
+             
+                    <!--<span class="hide" itemprop="summary">Rất tốt</span>-->
+                                    <div class="htdt-point-review color-darkblue font-bold">
+                                        <span itemprop="votes"><?php echo $total; ?></span> comments
+                    </div>
+                    
+             <table>
+             
+                
+                 <a href="#comment"> <span style="margin-left: 80px;" class="btn-blue"> Comment Now</span></a>
+<!--                 <tr><input type="button"  value="Comment Now" class="btn-blue" style=""></tr>-->
+             </table>
+                
+           
+            </section>
+    
+<section class="htdt-map bg-white br-8 pad-tb-4 pad-lr-4">
+                
+                    <div id="gmap3-right" class="mrg-lr-auto" data-lat="11.94066444" data-lng="108.43444169" style="width: 247px; height: 320px; position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -118px; top: 114px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 138px; top: 114px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -118px; top: -142px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -118px; top: 370px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 138px; top: -142px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 138px; top: 370px;"></div></div></div></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -118px; top: 114px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 138px; top: 114px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -118px; top: -142px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -118px; top: 370px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 138px; top: -142px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 138px; top: 370px;"></div></div></div></div><div style="position: absolute; z-index: 0; transform: translateZ(0px); left: 0px; top: 0px;"><div style="overflow: hidden; width: 247px; height: 320px;"><img src="https://maps.googleapis.com/maps/api/js/StaticMapService.GetMapImage?1m2&amp;1i6720886&amp;2i3913870&amp;2e1&amp;3u15&amp;4m2&amp;1u247&amp;2u320&amp;5m5&amp;1e0&amp;5svi&amp;6sus&amp;10b1&amp;12b1&amp;token=60732" style="width: 247px; height: 320px;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="transform: translateZ(0px); position: absolute; left: -118px; top: 114px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i26253!3i15289!2m3!1e0!2sm!3i301102045!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 138px; top: 114px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i26254!3i15289!2m3!1e0!2sm!3i301102045!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: -118px; top: -142px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i26253!3i15288!2m3!1e0!2sm!3i301102045!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: -118px; top: 370px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i26253!3i15290!2m3!1e0!2sm!3i301102045!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 138px; top: -142px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i26254!3i15288!2m3!1e0!2sm!3i301102045!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 138px; top: 370px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i26254!3i15290!2m3!1e0!2sm!3i301102045!3m9!2svi!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="https://maps.google.com/maps?ll=11.940664,108.434442&amp;z=15&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=apiv3" title="Nhấp để xem khu vực này trên Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 100px; bottom: 0px; width: 143px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Dữ liệu Bản đồ</a><span style="">Dữ liệu bản đồ ©2015 Google</span></div></div></div><div style="padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 193px; height: 148px; position: absolute; left: 5px; top: 70px; background-color: white;"><div style="padding: 0px 0px 10px; font-size: 16px;">Dữ liệu Bản đồ</div><div style="font-size: 13px;">Dữ liệu bản đồ ©2015 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Dữ liệu bản đồ ©2015 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; position: absolute; -webkit-user-select: none; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="https://www.google.com/intl/vi_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Điều khoản sử dụng</a></div></div><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; display: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_new" title="Báo cáo lỗi trong bản đồ đường hoặc hình ảnh đến Google" href="https://www.google.com/maps/@11.9406644,108.4344417,15z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Báo cáo một lỗi bản đồ</a></div></div><div class="gmnoprint" draggable="false" controlwidth="32" controlheight="84" style="margin: 5px; -webkit-user-select: none; position: absolute; left: 0px; top: 0px;"><div controlwidth="32" controlheight="40" style="cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; position: absolute; left: 0px; top: 0px;"><div aria-label="Kiểm soát người hình mắc áo trong chế độ xem phố" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div aria-label="Người hình mắc áo bị vô hiệu hóa" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div aria-label="Người hình mắc áo ở đầu Bản đồ" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div aria-label="Kiểm soát người hình mắc áo trong chế độ xem phố" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" draggable="false" style="position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="0" controlheight="0" style="opacity: 0.6; display: none; position: absolute;"><div title="Xoay bản đồ 90 độ" style="width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="20" controlheight="39" style="position: absolute; left: 6px; top: 45px;"><div style="width: 20px; height: 39px; overflow: hidden; position: absolute;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -39px; top: -401px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Phóng to" style="position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;"></div><div title="Thu nhỏ" style="position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;"></div></div></div><div class="gmnoprint gm-style-mtc" style="margin: 5px; z-index: 0; position: absolute; cursor: pointer; text-align: left; width: 85px; right: 0px; top: 0px;"><div draggable="false" title="Thay đổi kiểu bản đồ" style="direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 1px 6px; border-radius: 2px; -webkit-background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; font-weight: 500; background-color: rgb(255, 255, 255); background-clip: padding-box;">Bản đồ<img src="https://maps.gstatic.com/mapfiles/arrow-down.png" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: -2px 0px 0px; position: absolute; right: 6px; top: 50%; width: 7px; height: 4px;"></div><div style="z-index: -1; padding-top: 2px; -webkit-background-clip: padding-box; border-width: 0px 1px 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: rgba(0, 0, 0, 0.14902); border-bottom-color: rgba(0, 0, 0, 0.14902); border-left-color: rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; position: absolute; top: 100%; left: 0px; right: 0px; text-align: left; display: none; background-color: white; background-clip: padding-box;"><div draggable="false" title="Hiển thị bản đồ phố" style="color: black; font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px; font-weight: 500; background-color: rgb(255, 255, 255);">Bản đồ</div><div draggable="false" title="Hiển thị hình ảnh qua vệ tinh" style="color: black; font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px; background-color: rgb(255, 255, 255);">Vệ tinh</div><div style="margin: 1px 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(235, 235, 235);"></div><div draggable="false" title="Hiển thị bản đồ phố với địa hình" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img src="https://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Địa hình</label></div><div style="margin: 1px 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(235, 235, 235); display: none;"></div><div draggable="false" title="Phóng to để hiển thị chế độ xem 45 độ" style="color: rgb(184, 184, 184); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(241, 241, 241); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img src="https://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">45°</label></div><div draggable="false" title="Hiển thị hình ảnh có tên phố" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img src="https://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Nhãn</label></div></div></div></div></div>
+    <a href="javascript:;" class="font-bold font-size-14 pad-tb-8 disp-block txt-center call-modal-map" data-lat="11.94066444" data-lng="108.43444169">Xem bản đồ</a>
+                
+</section></aside></section>
 <!-- END HOTEL -->
 
 <!-- END BODY -->
@@ -681,118 +627,33 @@
 <footer>
     <div class="container">
         <div class="foot-col-1 col-xs-12 col-sm-6 col-md-3 col-lg-2">
-            <ul>
-                <li><h3>Về iVIVU.com</h3></li>
-                <li><a href="//www.ivivu.com/gioi-thieu">Giới thiệu</a></li>
-                <li><a href="//www.ivivu.com/blog/category/chung-toi">Chúng tôi</a></li>
-                <li><a href="//www.ivivu.com/tuyen-dung">Tuyển dụng</a></li>
-                <li class="hide"><a href="">Liên hệ</a></li>
-                <li class="hide"><a href="">Phản hồi</a></li>
-            </ul>
-        </div>
-        <div class="foot-col-2 col-xs-12 col-sm-6 col-md-3 col-lg-2">
-            <ul>
-                <li><h3>Thông Tin Cần Biết</h3></li>
-                <li><a href="//www.ivivu.com/dieu-kien-dieu-khoan">Điều kiện &amp; Điều khoản</a></li>
-                <li><a href="//www.ivivu.com/chinh-sach-rieng-tu">Chính sách riêng tư</a></li>
-                <li><a href="//www.ivivu.com/chinh-sach-bao-mat">Chính sách bảo mật</a></li>
-                <li><a href="//www.ivivu.com/ho-tro">Hỗ trợ</a></li>
-            </ul>
-        </div>
-        <div class="foot-col-3 col-xs-12 col-sm-6 col-md-3 col-lg-2">
-            <ul>
-                <li><h3>Đối Tác</h3></li>
-                <li class="hide"><a href="" target="_blank">Đối tác khách sạn</a></li>
-                <li class="hide"><a href="" target="_blank">Đối tác đại lý</a></li>
-                <li class="hide"><a href="" target="_blank">Đối tác liên kết</a></li>
-                <li><a href="//tiki.vn" target="_blank">Tiki.vn - Mua sắm online</a></li>
-            </ul>
-        </div>
-        <div class="foot-col-4 col-xs-12 col-sm-6 col-md-3 col-lg-2">
-            <ul>
-                <li><h3>Liên Kết Hữu Ích</h3></li>
-                <li class="hide"><a href="" target="_blank">Ebook cẩm nang du lịch</a></li>
-                <li class="hide"><a href="" target="_blank">Newletter mới nhất</a></li>
-                <li class="hide"><a href="" target="_blank">Thẻ giảm giá</a></li>
-                <li><a href="//www.ivivu.com/pms" target="_blank">PMS - Miễn phí</a></li>
-            </ul>
-        </div>
-        <div class="foot-col-5 col-xs-12 col-sm-12 col-md-12 col-lg-4">
-            <ul>
-                <li>
-                    <ol class="foot-partner">
-                        <li>
-                            <a href="http://www.thienminhtravel.com/" target="_blank">
-                                <i class="sprites logo-tmg"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.buffalotours.com/" target="_blank">
-                                <i class="sprites logo-buffalo"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.victoriahotels.asia/" target="_blank">
-                                <i class="sprites logo-victoria"></i>
-                            </a>
-                        </li>
-                    </ol>
-                </li>
-                <li>iVIVU.com là một thành viên của Thiên Minh Groups</li>
-                <li>iVIVU.com © 2015 - <b>Hệ thống đặt phòng khách sạn trực tuyến hàng đầu Việt Nam</b></li>
-                <li>
-                    <ol>
-                        <li>
-                            <a href="https://facebook.com/iVIVU" target="_blank">
-                                <i class="sprites icn-c-facebook hover-opacity-8"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://plus.google.com/109621980211258897268/" target="_blank">
-                                <i class="sprites icn-c-googleplus hover-opacity-8"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/#!/ivivudotcom" target="_blank">
-                                <i class="sprites icn-c-twitter hover-opacity-8"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.pinterest.com/iVIVU/" target="_blank">
-                                <i class="sprites icn-c-pinterest hover-opacity-8"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=942" target="_blank">
-                                <i class="sprites logo-bct"></i>
-                            </a>
-                        </li>
-                    </ol>
-                </li>
-            </ul>
+            
         </div>
     </div>
     <div class="container">
         <div class="foot-col-6 col-xs-12 col-sm-12 col-md-6 col-lg-4">
             <ul>
-                <li class="foot-call">Bạn cần trợ giúp? Hãy gọi ngay</li>
-                <li class="foot-fone">CSKH:&nbsp;<a href="tel:0839308290">(08) 3930 8290</a></li>
-                <li class="foot-fone">Khác:&nbsp;&nbsp;<a href="tel:0839308291">(08) 3930 8291</a></li>
-                <li class="foot-time">từ 7h30 - 21h hằng ngày</li>
+                <li class="foot-call">Please call me for more detail</li>
+                <li class="foot-fone">Help:&nbsp;<a href="tel:0988.332.563">0988.332.563</a> </li>
+                <li class="foot-fone">Other:&nbsp;&nbsp;<a href="tel:01293711994">01293.71.1994</a></li>
+                <li class="foot-time">from 7h30 - 21h everyday</li>
             </ul>
         </div>
         <div class="foot-col-7 col-xs-12 col-sm-12 col-md-6 col-lg-8">
             <ul>
                 <li>
                     <i class="sprites icn-footermail foot-mail"></i>
-                    <a href="mailto:tc@ivivu.com">TC@iVIVU.com</a>
+                    <a href="mailto:vvt7193@gmail.com">vvt7193@gmail.com</a>
                 </li>
                 <li>
                     <i class="sprites icn-footerpin foot-pin"></i>
-                    <b>HCM:</b> Lầu 2, Saigon Prime, 107-111 Nguyễn Đình Chiểu, Phường 6, Quận 3, Tp. Hồ Chí Minh (<a href="javascript:;" class=" font-size-14 call-modal-map" data-lat="10.77866733006275" data-lng="106.69041095396733">Xem bản đồ</a>)
+                    <b> Copyright@2015 All Right Reserved </b>
+                    
                     <br>
-                    <b>HN:</b> Lầu 9, 70-72 Bà Triệu, Quận Hoàn Kiếm, Hà Nội (<a href="javascript:;" class=" font-size-14 call-modal-map" data-lat="21.0202535" data-lng="105.84974699999998">Xem bản đồ</a>)
+                    <b>ADDRESS: HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY </b> (<a href="javascript:;" class=" font-size-14 call-modal-map" data-lat="21.0202535" data-lng="105.84974699999998">view map</a>)
                 </li>
+                
+                
             </ul>
         </div>
     </div>
@@ -825,7 +686,7 @@
     <!-- END PRELOADER -->    
     
     <!-- BEGIN GLOBAL -->
-    <div id="PRG" class="hide">
+<!--    <div id="PRG" class="hide">
     <div class="head">
         <b>Vui lòng để lại thông tin yêu cầu đặt phòng khách sạn của Quý khách.</b><br>
         <small>
@@ -837,13 +698,13 @@
     <div class="body">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-l-0 pad-r-10">
             <ul class="pad-b-10">
-                <li class="font-size-12">Họ &amp; Tên: <span class="color-dred content-asterisk"></span></li>
+                <li class="font-size-12">Name: <span class="color-dred content-asterisk"></span></li>
                 <li>
                     <input type="text" name="modal-cusname" value="" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" placeholder="Nguyễn Văn A" tabindex="1">
                 </li>
             </ul>
             <ul class="pad-b-10">
-                <li class="font-size-12">Số điện thoại: <span class="color-dred content-asterisk"></span></li>
+                <li class="font-size-12">Phone number: <span class="color-dred content-asterisk"></span></li>
                 <li>
                     <input type="text" name="modal-cusfone" value="" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" placeholder="(+84) 839 308 290" tabindex="2">
                 </li>
@@ -902,7 +763,7 @@
     <div class="foot">
         <button type="button" class="prg-submit btn-orange pad-tb-4 pad-lr-10 uppercase" onclick="ga('send', { 'hitType': 'event', 'eventCategory': 'YCG', 'eventAction': 'Click', 'eventLabel': 'Thành công' }); dataLayer.push({ 'event': 'priceRequestSuccess', 'eventCatelogy': 'tracking', 'eventAction': 'clickButtonRequestSuccess', 'eventLabel': 'priceRequestSuccessLabel' });">Gửi yêu cầu</button>
     </div>
-</div>
+</div>-->
 <div id="MMP" class="hide">
     <div class="head"></div>
     <div class="body">
@@ -924,8 +785,8 @@
     
 <script src="//res.ivivu.com/hotel/vendor/jssor/jssor.js"></script>
 <script src="//res.ivivu.com/hotel/vendor/jssor/jssor.slider.min.js"></script>
-<script src="//res.ivivu.com/hotel/vendor/sweetalert/sweet-alert.min.js"></script>
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54ad075c550548bb" async="async"></script>
+<!--<script src="//res.ivivu.com/hotel/vendor/sweetalert/sweet-alert.min.js"></script>-->
+<!--<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54ad075c550548bb" async="async"></script>-->
 
 
     <script src="//res.ivivu.com/hotel/js/0.0.1/static.min.js?v=0.0.1.2" type="text/javascript"></script>
@@ -961,4 +822,5 @@
 
     <!-- End Facebook Tracking Event Section -->
 
-<div><div class="sweet-overlay" tabindex="-1"></div><div class="sweet-alert" tabindex="-1"><div class="icon error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div><div class="icon warning"> <span class="body"></span> <span class="dot"></span> </div> <div class="icon info"></div> <div class="icon success"> <span class="line tip"></span> <span class="line long"></span> <div class="placeholder"></div> <div class="fix"></div> </div> <div class="icon custom"></div> <h2>Title</h2><p>Text</p><button class="cancel" tabindex="2">Cancel</button><button class="confirm" tabindex="1">OK</button></div></div><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh443" title="AddThis utility frame" src="https://s7.addthis.com/static/sh.0c665a7f.html#iit=1432021261368&amp;tmr=load%3D1432021259360%26core%3D1432021259454%26main%3D1432021261353%26ifr%3D1432021261377&amp;cb=0&amp;cdn=0&amp;kw=Kh%C3%A1ch%20s%E1%BA%A1n%20Asiana%20Sapa%20Th%C3%A1c%20B%E1%BA%A1c%2C%C4%91%E1%BB%8Ba%20ch%E1%BB%89%20Kh%C3%A1ch%20s%E1%BA%A1n%20Asiana%20Sapa%20Th%C3%A1c%20B%E1%BA%A1c&amp;ab=per-1&amp;dh=www.ivivu.com&amp;dr=https%3A%2F%2Fwww.ivivu.com%2Fkhach-san-sapa%2Fkhach-san-asiana-sapa-thac-bac&amp;du=https%3A%2F%2Fwww.ivivu.com%2Fkhach-san-sapa%2Fkhach-san-asiana-sapa-thac-bac&amp;href=https%3A%2F%2Fwww.ivivu.com%2Fkhach-san-sapa%2Fkhach-san-asiana-sapa-thac-bac&amp;dt=Kh%C3%A1ch%20s%E1%BA%A1n%20Asiana%20Sapa%20Th%C3%A1c%20B%E1%BA%A1c&amp;dbg=0&amp;cap=tc%3D0%26ab%3D0&amp;inst=1&amp;jsl=1&amp;prod=undefined&amp;lng=en-US&amp;ogt=description%2Ctitle%2Cimage%2Curl%2Ctype%3Dwebsite&amp;pc=men&amp;pub=ra-54ad075c550548bb&amp;ssl=1&amp;sid=555ae90bc745828d&amp;srpl=1&amp;srcs=1&amp;srd=1&amp;srf=0.01&amp;srx=1&amp;ver=300&amp;xck=0&amp;xtr=0&amp;og=type%3Dwebsite%26url%3Dhttps%253A%252F%252Fwww.ivivu.com%252Fkhach-san-sapa%252Fkhach-san-asiana-sapa-thac-bac%26image%3Dhttps%253A%252F%252Fcdn1.ivivu.com%252FWotif%252FW561528%252Fprop-img-full-hxcyraac-17mppr7dv6cjk.jpg%26title%3DKh%25C3%25A1ch%2520s%25E1%25BA%25A1n%2520Asiana%2520Sapa%2520Th%25C3%25A1c%2520B%25E1%25BA%25A1c%2520-%2520kh%25C3%25A1ch%2520s%25E1%25BA%25A1n%252025%2520sao%2520t%25E1%25BA%25A1i%2520Sapa%26description%3DKh%25C3%25A1ch%2520s%25E1%25BA%25A1n%2520Asiana%2520Sapa%2520Th%25C3%25A1c%2520B%25E1%25BA%25A1c%2520-%2520%25C4%2591%25E1%25BA%25B7t%2520ph%25C3%25B2ng%2520Kh%25C3%25A1ch%2520s%25E1%25BA%25A1n%2520Asiana%2520Sapa%2520Th%25C3%25A1c%2520B%25E1%25BA%25A1c%2520gi%25C3%25A1%2520r%25E1%25BA%25BB%2520v%25E1%25BB%259Bi%2520iVIVU.com%2520%25C4%2590%25E1%25BA%25B6T%2520PH%25C3%2592NG%2520TR%25E1%25BB%25B0C%2520TUY%25E1%25BA%25BEN%2520ho%25E1%25BA%25B7c%2520g%25E1%25BB%258Di%25208.3930.8290%253B%2520X%25C3%2581C%2520NH%25E1%25BA%25ACN%2520qua%2520SMS.%2520H%25E1%25BB%2597%2520tr%25E1%25BB%25A3%252024%252F7.&amp;aa=0&amp;csi=undefined&amp;toLoJson=uvs%3D555ae7ebd7c2c790001%26chr%3DUTF-8%26md%3D0%26vcl%3D1&amp;rev=v1.8.2b-wp&amp;ct=1&amp;xld=1&amp;xd=1" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;"></iframe></div><div class="at4-share-outer addthis-smartlayers addthis-smartlayers-desktop" aria-labelledby="at4-share-label" role="region"><div id="at4-share-label">AddThis Sharing</div><div id="at4-share" class="addthis_32x32_style atss atss-left addthis-animated slideInLeft at4-show"><a class="at4-share-btn at-svc-facebook" href="#"><span class=" at4-icon aticon-facebook" title="Facebook">Facebook</span></a><a class="at4-share-btn at-svc-twitter" href="#"><span class=" at4-icon aticon-twitter" title="Twitter">Twitter</span></a><a class="at4-share-btn at-svc-email" href="#"><span class=" at4-icon aticon-email" title="Email">Email</span></a><a class="at4-share-btn at-svc-print" href="#"><span class=" at4-icon aticon-print" title="Print">Print</span></a><a class="at4-share-btn at-svc-compact" href="#"><span class=" at4-icon aticon-compact" title="More">More</span></a><div id="at4-scc" class="at-share-close-control ats-transparent at4-show at4-hide-content" title="Hide"><div class="at4-arrow at-left">Hide</div></div></div><div id="at4-soc" class="at-share-open-control-left ats-transparent at4-hide" title="Show"><div class="at4-arrow at-right">Show</div></div></div><div id="at4-thankyou" class="at4-thankyou at4-thankyou-background at4-hide ats-transparent at4-thankyou-desktop addthis-smartlayers addthis-animated fadeIn at4-show" role="dialog" aria-labelledby="at-thankyou-label"><div class="at4lb-inner"><a class="at4x" href="#" title="Close"></a><a id="at4-palogo" class="at4-logo" href="//www.addthis.com/website-tools?utm_source=smlty" title="AddThis" target="_blank">AddThis</a><a id="at4-paprivacy" class="at4-privacy" href="//www.addthis.com/privacy/privacy-policy" title="Privacy" target="_blank">Privacy</a><div class="at4-thankyou-inner"><div id="at-thankyou-label" class="thankyou-title"></div><div class="thankyou-description"></div><div class="at4-thankyou-layer"></div></div></div></div></body></html>
+<!--<div><div class="sweet-overlay" tabindex="-1"></div><div class="sweet-alert" tabindex="-1"><div class="icon error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div><div class="icon warning"> <span class="body"></span> <span class="dot"></span> </div> <div class="icon info"></div> <div class="icon success"> <span class="line tip"></span> <span class="line long"></span> <div class="placeholder"></div> <div class="fix"></div> </div> <div class="icon custom"></div> <h2>Title</h2><p>Text</p><button class="cancel" tabindex="2">Cancel</button><button class="confirm" tabindex="1">OK</button></div></div><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh443" title="AddThis utility frame" src="https://s7.addthis.com/static/sh.0c665a7f.html#iit=1432021261368&amp;tmr=load%3D1432021259360%26core%3D1432021259454%26main%3D1432021261353%26ifr%3D1432021261377&amp;cb=0&amp;cdn=0&amp;kw=Kh%C3%A1ch%20s%E1%BA%A1n%20Asiana%20Sapa%20Th%C3%A1c%20B%E1%BA%A1c%2C%C4%91%E1%BB%8Ba%20ch%E1%BB%89%20Kh%C3%A1ch%20s%E1%BA%A1n%20Asiana%20Sapa%20Th%C3%A1c%20B%E1%BA%A1c&amp;ab=per-1&amp;dh=www.ivivu.com&amp;dr=https%3A%2F%2Fwww.ivivu.com%2Fkhach-san-sapa%2Fkhach-san-asiana-sapa-thac-bac&amp;du=https%3A%2F%2Fwww.ivivu.com%2Fkhach-san-sapa%2Fkhach-san-asiana-sapa-thac-bac&amp;href=https%3A%2F%2Fwww.ivivu.com%2Fkhach-san-sapa%2Fkhach-san-asiana-sapa-thac-bac&amp;dt=Kh%C3%A1ch%20s%E1%BA%A1n%20Asiana%20Sapa%20Th%C3%A1c%20B%E1%BA%A1c&amp;dbg=0&amp;cap=tc%3D0%26ab%3D0&amp;inst=1&amp;jsl=1&amp;prod=undefined&amp;lng=en-US&amp;ogt=description%2Ctitle%2Cimage%2Curl%2Ctype%3Dwebsite&amp;pc=men&amp;pub=ra-54ad075c550548bb&amp;ssl=1&amp;sid=555ae90bc745828d&amp;srpl=1&amp;srcs=1&amp;srd=1&amp;srf=0.01&amp;srx=1&amp;ver=300&amp;xck=0&amp;xtr=0&amp;og=type%3Dwebsite%26url%3Dhttps%253A%252F%252Fwww.ivivu.com%252Fkhach-san-sapa%252Fkhach-san-asiana-sapa-thac-bac%26image%3Dhttps%253A%252F%252Fcdn1.ivivu.com%252FWotif%252FW561528%252Fprop-img-full-hxcyraac-17mppr7dv6cjk.jpg%26title%3DKh%25C3%25A1ch%2520s%25E1%25BA%25A1n%2520Asiana%2520Sapa%2520Th%25C3%25A1c%2520B%25E1%25BA%25A1c%2520-%2520kh%25C3%25A1ch%2520s%25E1%25BA%25A1n%252025%2520sao%2520t%25E1%25BA%25A1i%2520Sapa%26description%3DKh%25C3%25A1ch%2520s%25E1%25BA%25A1n%2520Asiana%2520Sapa%2520Th%25C3%25A1c%2520B%25E1%25BA%25A1c%2520-%2520%25C4%2591%25E1%25BA%25B7t%2520ph%25C3%25B2ng%2520Kh%25C3%25A1ch%2520s%25E1%25BA%25A1n%2520Asiana%2520Sapa%2520Th%25C3%25A1c%2520B%25E1%25BA%25A1c%2520gi%25C3%25A1%2520r%25E1%25BA%25BB%2520v%25E1%25BB%259Bi%2520iVIVU.com%2520%25C4%2590%25E1%25BA%25B6T%2520PH%25C3%2592NG%2520TR%25E1%25BB%25B0C%2520TUY%25E1%25BA%25BEN%2520ho%25E1%25BA%25B7c%2520g%25E1%25BB%258Di%25208.3930.8290%253B%2520X%25C3%2581C%2520NH%25E1%25BA%25ACN%2520qua%2520SMS.%2520H%25E1%25BB%2597%2520tr%25E1%25BB%25A3%252024%252F7.&amp;aa=0&amp;csi=undefined&amp;toLoJson=uvs%3D555ae7ebd7c2c790001%26chr%3DUTF-8%26md%3D0%26vcl%3D1&amp;rev=v1.8.2b-wp&amp;ct=1&amp;xld=1&amp;xd=1" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;"></iframe></div><div class="at4-share-outer addthis-smartlayers addthis-smartlayers-desktop" aria-labelledby="at4-share-label" role="region"><div id="at4-share-label">AddThis Sharing</div><div id="at4-share" class="addthis_32x32_style atss atss-left addthis-animated slideInLeft at4-show"><a class="at4-share-btn at-svc-facebook" href="#"><span class=" at4-icon aticon-facebook" title="Facebook">Facebook</span></a><a class="at4-share-btn at-svc-twitter" href="#"><span class=" at4-icon aticon-twitter" title="Twitter">Twitter</span></a><a class="at4-share-btn at-svc-email" href="#"><span class=" at4-icon aticon-email" title="Email">Email</span></a><a class="at4-share-btn at-svc-print" href="#"><span class=" at4-icon aticon-print" title="Print">Print</span></a><a class="at4-share-btn at-svc-compact" href="#"><span class=" at4-icon aticon-compact" title="More">More</span></a><div id="at4-scc" class="at-share-close-control ats-transparent at4-show at4-hide-content" title="Hide"><div class="at4-arrow at-left">Hide</div></div></div><div id="at4-soc" class="at-share-open-control-left ats-transparent at4-hide" title="Show"><div class="at4-arrow at-right">Show</div></div></div><div id="at4-thankyou" class="at4-thankyou at4-thankyou-background at4-hide ats-transparent at4-thankyou-desktop addthis-smartlayers addthis-animated fadeIn at4-show" role="dialog" aria-labelledby="at-thankyou-label"><div class="at4lb-inner"><a class="at4x" href="#" title="Close"></a><a id="at4-palogo" class="at4-logo" href="//www.addthis.com/website-tools?utm_source=smlty" title="AddThis" target="_blank">AddThis</a><a id="at4-paprivacy" class="at4-privacy" href="//www.addthis.com/privacy/privacy-policy" title="Privacy" target="_blank">Privacy</a><div class="at4-thankyou-inner"><div id="at-thankyou-label" class="thankyou-title"></div><div class="thankyou-description"></div><div class="at4-thankyou-layer"></div></div></div></div>-->
+</body></html>

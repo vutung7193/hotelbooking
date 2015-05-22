@@ -42,23 +42,7 @@
 		<?php echo $form->textField($model,'point'); ?>
 		<?php echo $form->error($model,'point'); ?>
 	</div>
-<div class="row">
-<?php 
-if(isset($_POST['danhgia']))
-{
-    $val = $_POST['hotel_id'];
-    
-                    echo $form->labelEx($model,'hotel_id');
-		?>
-    
-    <input type="text" name="hotel_id" value="<?php echo $val?>">
-    <?php
-		 echo $form->error($model,'hotel_id');
-    
-    
-}
-?>
-</div>
+
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -6,7 +6,7 @@ if(UserModule::isAdmin()) {
 <?php 
 } else {
 ?>
-<li><?php echo CHtml::link(UserModule::t('List User'),array('/user')); ?></li>
+<!--<li><?php // echo CHtml::link(UserModule::t('List User'),array('/user')); ?></li>-->
 <?php
 }
 ?>

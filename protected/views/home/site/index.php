@@ -68,9 +68,9 @@
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation pull-left font-transform-inherit">
             <ul>
-                <li class="active">
-                    <a href="#">
-                        Hotels
+                 <li class="active">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>">
+                        Homepage
                     </a>
                 </li>
                 <li>
@@ -83,31 +83,42 @@
                         Help
                     </a>
                 </li>
+                <?php 
+                if(Yii::app()->user->isGuest){
+                ?>
                  <li>
-                    <a href="#">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/user/login">
                         Login
                     </a>
                 </li>
                  <li>
-                    <a href="#">
+                    <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/user/registration">
                         Register
                     </a>
                 </li>
-                
-               
-<!--                <li class="dropdown">
+                <?php }?>
+               <?php if( !Yii::app()->user->isGuest){
+                   
+                   ?>
+             <li class="dropdown" style="margin-right:  50px">
                     <a class="dropdown-toggle menu-more" data-toggle="dropdown" href="javascript:;">
-                        <i class="sprites icn-menu-threedots"></i>
+                        <i style="font-size: 12px"><img src="<?php echo Yii::app()->baseUrl?>/img/profile_icon.png" width="40px" height="40px" >welcome,</i>
+                        
+                        <i><?php echo Yii::app()->user->name; ?>!</i>
+                         <!--<li><a href="">Profile</li>-->
                     </a>
                     <ul class="dropdown-menu bullet">
-                        <li><a href="//www.ivivu.com/gioi-thieu">Giới thiệu</a></li>
-                        <li><a href="//www.ivivu.com/hoi-dap">Hỏi đáp</a></li>
-                        <li><a href="//www.ivivu.com/ho-tro">Hỗ trợ</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
+                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>
-                </li>-->
+                </li>
+               <?php }?>
+                
             </ul>
         </div>
-        <!-- END NAVIGATION -->
+      
        
     </div>
 </header>
@@ -214,8 +225,8 @@
                                     
                                 ?>
                                 <div class="popular-item">
-        <a href="//www.ivivu.com/khach-san-sapa/khach-san-asiana-sapa-thac-bac" class="popular-item-avatar">
-            <img src="//cdn1.ivivu.com/Wotif/W561528/prop-img-full-hxcyraac-17mppr7dv6cjk-350x230.jpg" alt="Khách sạn Asiana Sapa Thác Bạc" class="mCS_img_loaded">
+        <a href="<?php echo $this->createUrl('/site/hotelDetail', array('id' =>$model->id)) ?>" class="popular-item-avatar">
+            <img src="<?php echo Yii::app()->baseUrl.$model->logo; ?>" alt="<?php echo $model->name; ?>" class="mCS_img_loaded">
         </a>
             <div class="popular-item-review">
                 <span class="review-score"><?php 
@@ -243,15 +254,7 @@
                             ?></strong>
             <span class="review content-horizontal"></span>
             <a href="#" class="review-count"><?php echo $i;  ?> reviews</a>
-             <form method="post" action="http://localhost/hotel6/index.php/comments/create">
-             <table>
-                 <input type="text" style="width: 10px" name="hotel_id" value="<?php  echo $model->id?>"
-                
-                 <tr><?php // echo $model->id ; ?></tr>
-                 <tr><input type="submit" name="danhgia" value="Đánh giá"></tr>
-             </table>
-                
-            </form>
+           
         </div>    
                         <div class="popular-item-price">
                     <span class="price-txt">Price from</span>
@@ -263,7 +266,7 @@
             <i class="sprites icn-favorite"></i>
         </div>
         <ul class="popular-item-info">
-            <li class="popular-item-name"><a href="//www.ivivu.com/khach-san-sapa/khach-san-asiana-sapa-thac-bac">
+            <li class="popular-item-name"><a href="<?php echo Yii::app()->baseUrl.$model->logo;?>">
 <a href="<?php echo $this->createUrl('/site/hotelDetail', array('id' =>$model->id)) ?>"><?php echo $model->name?></a></a>
             <i class="sprites icn-star-25"></i></li>
                 <li class="popular-item-address"><?php echo $model->address; ?></li>

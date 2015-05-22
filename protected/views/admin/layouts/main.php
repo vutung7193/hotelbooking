@@ -43,6 +43,9 @@
                  array('label' => 'hotelconvenient', 'url' => array('/hotelConvenient/admin')),
                  array('label' => 'convenient', 'url' => array('/convenient/admin')),
                  array('label' => 'services', 'url' => array('/services/admin')),
+                 array('label' => 'hotelservices', 'url' => array('/hotelServices/admin')),
+                 array('label' => 'bookingdetail', 'url' => array('/bookingDetail/admin')),
+                 array('label' => 'booking', 'url' => array('/booking/admin')),
                  array('label' => 'manageUser', 'url' => array('/user/admin')),
 //              
 //                  array('label' => 'Login', 'url' => array('/user/login'), 'visible' => Yii::app()->user->isGuest),
