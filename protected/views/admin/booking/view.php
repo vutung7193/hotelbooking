@@ -25,7 +25,7 @@ $this->menu=array(
 		'user_id',
 		'date_from',
 		'date_to',
-		'person_no',
+//		'person_no',
 		'room_id',
 		'status',
 	),

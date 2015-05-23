@@ -37,11 +37,7 @@
 		<?php echo $form->error($model,'date_to'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'person_no'); ?>
-		<?php echo $form->textField($model,'person_no'); ?>
-		<?php echo $form->error($model,'person_no'); ?>
-	</div>
+	
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'room_id'); ?>

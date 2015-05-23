@@ -34,9 +34,10 @@ class BookingDetail extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('booking_id', 'required'),
-			array('booking_id, service_id', 'numerical', 'integerOnly'=>true),
-			array('name, phone, email, address', 'length', 'max'=>50),
+			array('booking_id, name, phone, email, address', 'required'),
+			array('booking_id, person_no', 'numerical', 'integerOnly'=>true),
+			array('name, phone, email, address, hotel_service_id', 'length', 'max'=>50),
+                    
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, booking_id, name, phone, email, address, service_id', 'safe', 'on'=>'search'),
@@ -51,7 +52,7 @@ class BookingDetail extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'service' => array(self::BELONGS_TO, 'HotelServices', 'service_id'),
+//			'service' => array(self::BELONGS_TO, 'HotelServices', 'service_id'),
 			'booking' => array(self::BELONGS_TO, 'Booking', 'booking_id'),
 		);
 	}
@@ -68,7 +69,8 @@ class BookingDetail extends CActiveRecord
 			'phone' => 'Phone',
 			'email' => 'Email',
 			'address' => 'Address',
-			'service_id' => 'Service',
+                    'person_no' =>'Person_no',
+			'hotel_service_id' => 'Service',
 		);
 	}
 
@@ -96,7 +98,7 @@ class BookingDetail extends CActiveRecord
 		$criteria->compare('phone',$this->phone,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('address',$this->address,true);
-		$criteria->compare('service_id',$this->service_id);
+//		$criteria->compare('hotel_service_id',$this->service_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

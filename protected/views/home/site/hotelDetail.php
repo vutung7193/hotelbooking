@@ -3,21 +3,9 @@
     <title>hotel detail</title>
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
-    <meta name="dc.creator" content="iVIVU.com">
-    <meta name="dc.title" content="iVIVU.com">
-    <meta name="generator" content="">
-    <meta property="og:type" content="website">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <link rel="canonical" href="https://www.ivivu.com/khach-san-ho-chi-minh/khach-san-linh-dan-sai-gon">
+
 
     
-<meta name="description" content="Khách sạn Linh Đan Sài Gòn - đặt phòng Khách sạn Linh Đan Sài Gòn giá rẻ với iVIVU.com ĐẶT PHÒNG TRỰC TUYẾN hoặc gọi 8.3930.8290; XÁC NHẬN qua SMS. Hỗ trợ 24/7.">
-<meta name="keywords" content="Khách sạn Linh Đan Sài Gòn, địa chỉ Khách sạn Linh Đan Sài Gòn">
-<meta property="og:url" content="https://www.ivivu.com/khach-san-ho-chi-minh/khach-san-linh-dan-sai-gon">
-<meta property="og:image" content="https://cdn1.ivivu.com/Wotif/W393477/prop-img-full-h99iw7pc-gt8wuddltv5s.jpg">
-<meta property="og:title" content="Khách sạn Linh Đan Sài Gòn - khách sạn 20 sao tại Hồ Chí Minh">
-<meta property="og:description" content="Khách sạn Linh Đan Sài Gòn - đặt phòng Khách sạn Linh Đan Sài Gòn giá rẻ với iVIVU.com ĐẶT PHÒNG TRỰC TUYẾN hoặc gọi 8.3930.8290; XÁC NHẬN qua SMS. Hỗ trợ 24/7.">
 
 
     <link rel="shortcut icon" href="//res.ivivu.com/hotel/img/favicon.ico" type="image/x-icon">
@@ -119,7 +107,7 @@
                     </a>
                     <ul class="dropdown-menu bullet">
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
-                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <!--<li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>-->
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>
@@ -458,7 +446,7 @@
                                              
                                         </ul>
                                     </div>
-                                
+                            
                                                             
                                     <div class="htdt-room-desc">
                                         <h3 class="font-size-14 font-bold">Description</h3>
@@ -500,6 +488,27 @@
         <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i><?php echo Convenient::model()->findByPk($hotelCon->convenient_id)->name;?></div>
             <?php     }
 ?> 
+    </article>
+<!--    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
+        <div class="htdt-fac-showmore">
+            <a href="javascript:;" class="htdt-fac-showmore-btn pad-tb-8 pad-lr-30 br-4 mrg-t-15">Xem tất cả</a>
+        </div>
+    </article>-->
+</section>
+    <section class="htdt-facility clearfix bg-white br-8 mrg-b-15 pad-tb-15">
+    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 mrg-b-15">
+        <h3 class="color-darkblue font-size-18 font-bold ">Services in <?php echo $model->name; ?></h3>
+    </article>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12 htdt-fac-cnt">
+        <?php 
+        
+foreach ($hs as $hs){
+    $s = Services::model()->findByPk($hs->service_id);
+
+     ?>
+        <div class="faci-item col-xs-12 col-sm-6 col-md-4 col-xl-4 "><i class="sprites icn-stick-12"></i><?php echo $s->name; ?></div>
+  <?php }
+        ?>
     </article>
 <!--    <article class="col-xs-12 col-sm-12 col-md-12 col-xl-12">
         <div class="htdt-fac-showmore">

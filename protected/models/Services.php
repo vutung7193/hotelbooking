@@ -28,12 +28,12 @@ class Services extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('price', 'numerical'),
+//			array('price', 'numerical'),
 			array('name', 'length', 'max'=>255),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, price', 'safe', 'on'=>'search'),
+			array('id, name, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,7 +57,7 @@ class Services extends CActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'description' => 'Description',
-			'price' => 'Price',
+//			'price' => 'Price',
 		);
 	}
 
@@ -82,7 +82,7 @@ class Services extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('price',$this->price);
+//		$criteria->compare('price',$this->price);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

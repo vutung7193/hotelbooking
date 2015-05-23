@@ -30,8 +30,9 @@
        ));
         }
         
-         public function actionSuccess($bookingdetail_id)
+         public function actionSuccess($bookingdetail_id,$total)
         {
+            $temp = $total;
             
           
              $bookingdetail = BookingDetail::model()->findByPk($bookingdetail_id);
@@ -39,20 +40,33 @@
              
                 $room = Rooms::model()->findByPk($booking->room_id);
                  $hotel = Hotels::model()->findByPk($room->hotel_id);
-             
-    $this->pageTitle = 'Booking rooms';
+  
 //    $model = Hotels::model()->findAll();
     
        $this->render('success',array('hotel'=>$hotel,
            'room'=>$room,
-           'bookingdetail'=>$bookingdetail,));
-//       $this->redirect('index');
+           'bookingdetail'=>$bookingdetail,
+           'temp'=>$temp,
+           ));
+       
+//  $this->redirect('/messages/create',array('booking_id'=>$booking->id));
         }
           
       public function actionHotelDetail($id)   
       {
-          $this->pageTitle = 'Hotel';
+          if(isset($_POST['cancel'])){
+              if(isset($_POST['bookingId'])){
+                $b = Booking::model()->findByPk($_POST['bookingId']);
+                $b->delete();
+              }
+             
+          }
+          
+        
+          
           $model = Hotels::model()->findByPk($id);
+          $hs = HotelServices::model()->findAll("hotel_id = {$model->id}");
+          
                $low = Rooms::model()->findAll("hotel_id = {$model->id}");
                               $arr = array("unknown");
                             
@@ -101,6 +115,7 @@
                         'roomAvail'=>$roomAvail,
                       'checkin'=>$checkin,
                       'checkout'=>$checkout,
+                      'hs'=>$hs,
 //                   'roomAvai'=>$roomAvai,
                       )
                       

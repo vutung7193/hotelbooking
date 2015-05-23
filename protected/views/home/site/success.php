@@ -119,7 +119,7 @@
                     </a>
                     <ul class="dropdown-menu bullet">
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
-                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <!--<li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>-->
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>
@@ -133,37 +133,43 @@
     </div>
 </header>
     <div class="container" style="margin-top: 100px; margin-bottom: 50px" >
-        <div class="head" style="text-align: center; font-size: 20px; font-weight: bold; color: #0872d8"> Thank you for Booking</div><br>
+        <div class="head" style="text-align: center; font-size: 20px; font-weight: bold; color: #0872d8"><img src="<?php echo Yii::app()->baseUrl; ?>/img/check.png"> Thank you for Booking</div><br>
         <div class="body">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-l-0 pad-r-10">
             <ul class="pad-b-10">
-                <li class="font-size-12">Name: <span class="color-dred content-asterisk"></span></li>
+                <li class="font-size-12" style="color: #0066A4;font-weight: bold">Name: <span class="color-dred content-asterisk"></span></li>
                 <li>
                     <input type="text" name="modal-cusname" value="<?php echo $bookingdetail->name;?>" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" readonly tabindex="1">
                 </li>
             </ul>
             <ul class="pad-b-10">
-                <li class="font-size-12">phone: <span class="color-dred content-asterisk"></span></li>
+                <li class="font-size-12" style="color: #0066A4;font-weight: bold">Phone: <span class="color-dred content-asterisk"></span></li>
                 <li>
                     <input type="text" name="modal-cusfone" value="<?php echo $bookingdetail->phone;?>" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" readonly="readonly" tabindex="2">
                 </li>
             </ul>
             <ul class="pad-b-10">
-                <li class="font-size-12">Email: <span class="color-dred content-asterisk"></span></li>
+                <li class="font-size-12" style="color: #0066A4;font-weight: bold">Email: <span class="color-dred content-asterisk"></span></li>
                 <li>
                     <input type="text" name="modal-cusmail" value="<?php echo $bookingdetail->email;?>" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full"readonly="readonly" tabindex="3">
                 </li>
             </ul>
              <ul class="pad-b-10">
-                <li class="font-size-12">Address: <span class="color-dred content-asterisk"></span></li>
+                <li class="font-size-12" style="color: #0066A4;font-weight: bold">Address: <span class="color-dred content-asterisk"></span></li>
                 <li>
                     <input type="text" name="modal-cusadress" value="<?php echo $bookingdetail->address;?>" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" readonly="readonly" tabindex="3">
+                </li>
+            </ul>
+             <ul class="pad-b-10">
+                <li class="font-size-12" style="color: #0066A4;font-weight: bold">Person No: </li>
+                <li>
+                    <input type="number" name="modal-cusadress" value="<?php echo $bookingdetail->person_no;?>" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" readonly="readonly" tabindex="3">
                 </li>
             </ul>
         </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-l-0 pad-r-10">
             <ul class="pad-b-10">
-                <li class="font-size-12">Hotel's Name</li>
+                <li class="font-size-12" style="color: #0066A4;font-weight: bold">Hotel's Name</li>
                 <li>
                     <!--<input type="hidden" name="modal-regionid" value="">-->
                     <input type="text" name="modal-regioname" value="<?php echo $hotel->name;?>" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full" readonly="readonly">
@@ -172,7 +178,7 @@
          
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pad-l-0 pad-r-4">
                 <ul class="pad-b-10">
-                    <li class="font-size-12">Room's Name:</li>
+                    <li class="font-size-12" style="color: #0066A4;font-weight: bold">Room's Name:</li>
              
                     <input type="text" name="datepicker-modal-chkin" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full"  value="<?php echo $room->name;?>" tabindex="4">
                       
@@ -182,28 +188,61 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pad-lr-0">
                 <ul class="pad-b-10">
-                    <li class="font-size-12">Room's Price:</li>
+                    <li class="font-size-12" style="color: #0066A4;font-weight: bold">Room's Price:</li>
                    
                         <input type="text" name="datepicker-modal-chkout" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full"style="color: red" value="<?php echo $room->price;?>VND" tabindex="5">
                       
                    
                 </ul>
             </div>
-        
-        <div class="clearfix">
-          <ul class="pad-r-10">
+                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pad-l-0 pad-r-4">
+                <ul class="pad-b-10">
+                    <li class="font-size-12" style="color: #0066A4;font-weight: bold">Services:</li>
+             <?php 
+             
+              
+             
+             
+             
+             $list = $_GET['list'];
+             if(!empty($list)){
+             $list_arr = explode(",", rtrim($list,','));
+             foreach ($list_arr as $a){
+                 $detail = "<i class=\"sprites icn-stick-12\"></i> ";
+                $detail .= Services::model()->findByPk($a)->name;
+                    $detail .= " - ";
+                    $detail .= "<span style=\"color:red\">";
+                    $detail .= strval(HotelServices::model()->findByPk($a)->price);                    
+                    $detail .= " VND</span><br>";
+                    echo $detail;
+            }
+             }
+           ?>     
+                   
+                </ul>
+                     <ul class="pad-r-10">
               <br>
-              <li style="color: red;font-size: 20px; font-weight: bold">Total Cost:<?php echo $room->price;?> VND</li>
+              <li style="color: red;font-size: 20px; font-weight: bold">Total Cost:<?php echo ($room->price + $temp);?> VND</li>
 <!--                <li class="font-size-12">Yêu cầu khác:</li>
                 <li>
                     <textarea name="modal-other" class="br-4 pad-tb-4 pad-lr-8 bdr-a-d wth-full txtarea-resize-none" placeholder="VD: chi phí dự kiến, số người ở, dịch vụ phòng..." tabindex="6"></textarea>
-                </li>
-            </ul>-->
+                </li>-->
+            </ul>
+            </div>
+              <br>
+        <div class="clearfix">
+          
             <ul class="pad-r-10"></ul>
         </div><br>
-    </div>
-        
-        
+          </div>
+            <?php
+////            $test = $_GET['bookingdetail_id'];
+//            $test = $bookingdetail->id;
+////            echo $test;
+//            $booking_id = Booking::model()->findByPk($test);?>
+            
+            <a href="http://localhost/hotel6/index.php">  <input type="submit"  class="prg-submit btn-blue pad-tb-4 pad-lr-10 uppercase" style="font-size: 24px;"  value="OK">
+        </a> 
     </div>
     </div>
     <footer>

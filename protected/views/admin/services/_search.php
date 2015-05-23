@@ -26,10 +26,10 @@
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'price'); ?>
-		<?php echo $form->textField($model,'price'); ?>
-	</div>
+<!--	<div class="row">
+		<?php // echo $form->label($model,'price'); ?>
+		<?php // echo $form->textField($model,'price'); ?>
+	</div>-->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>

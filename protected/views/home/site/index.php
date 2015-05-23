@@ -19,8 +19,8 @@
 
 
     
-
-
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/vi_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/vi_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/vi_ALL/stats.js"></script></head>
 <body data-page="homepage">
     <!-- Google Tag Manager -->
@@ -109,7 +109,7 @@
                     </a>
                     <ul class="dropdown-menu bullet">
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
-                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <!--<li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>-->
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>
@@ -189,7 +189,8 @@
             <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                 <h3>TOP Hotel </h3>
                 <div class="popular-tab">
-                    <div class="popular-wrap mCustomScrollbar _mCS_1" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-light-thick mCSB_vertical mCSB_outside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                    <div class="popular-wrap mCustomScrollbar _mCS_1" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-light-thick mCSB_vertical mCSB_outside" tabindex="0">
+                            <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
     
                                 <?php 
                                   foreach($model as $model)
@@ -739,7 +740,15 @@ foreach ($com as $com)
 
         ga('create', 'UA-61182265-1', 'auto');
         ga('send', 'pageview');
+        
 
     </script>
-
+    <script type="text/javascript" >
+jQuery(document).ready(function($){
+    
+    $('#mCSB_1').slimScroll({
+        height: '250px'
+    });
+});
+    </script>
 </body></html>

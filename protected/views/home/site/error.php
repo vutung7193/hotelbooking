@@ -133,7 +133,7 @@
                     </a>
                     <ul class="dropdown-menu bullet">
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
-                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+                        <!--<li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>-->
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>

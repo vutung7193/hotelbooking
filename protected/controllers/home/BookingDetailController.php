@@ -64,21 +64,45 @@ class BookingDetailController extends HomeController
 	{
 		$model=new BookingDetail;
 
+                    
+                   
+                    
+                    
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['bookingDetail']))
 		{
                     
-//			$model->attributes=$_POST['BookingDetail'];
-                        $model->booking_id = $booking_id;
-                        $model->name = $_POST['modal-cusname'];
+           
+                    $idlist ="";
+                    $total = 0;
+                    if(isset($_POST['checkHC'])){
+                        
+                        $check = $_POST['checkHC'];
+                        if(!empty($check) ){
+                        $idlist="";
+                        foreach ($check as $a){
+                            $total += HotelServices::model()->findByPk($a)->price;
+                            $idlist .= strval($a);
+                            $idlist .= ",";
+                        }$model->hotel_service_id = rtrim($idlist,',');
+    //			$model->attributes=$_POST['BookingDetail'];                            
+                        }
+                    }   
+                    $model->booking_id = $booking_id;
+    $model->name = $_POST['modal-cusname'];
                             $model->phone = $_POST['modal-cusfone'];
                                 $model->email = $_POST['modal-cusmail'];
                                     $model->address = $_POST['modal-cusadress'];
+                                    $model->person_no = $_POST['modal-cuspersonno'];
+ 
 //                                        $model->name = $_POST['modal-cusname'];
-			if($model->save())
-				$this->redirect(array('/site/success','bookingdetail_id'=>$model->id));
+			if($model->save()){
+                            
+				$this->redirect(array('/site/success','bookingdetail_id'=>$model->id,'total'=>$total,'list'=>$idlist));
+                        }
+                   
 		}
 
 		$this->render('create',array(
@@ -98,7 +122,10 @@ class BookingDetailController extends HomeController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['BookingDetail']))
+		
+               
+
+                if(isset($_POST['BookingDetail']))
 		{
 			$model->attributes=$_POST['BookingDetail'];
 			if($model->save())

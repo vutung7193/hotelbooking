@@ -6,6 +6,7 @@
             <name>tinhvan</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>foreach</word>
             <word>tets</word>
         </spellchecker-wordlist>
     </configuration>

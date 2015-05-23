@@ -17,10 +17,11 @@
       <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/home/main.css"/>
        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/main.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/form.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/home/styles.css"/>
 <!--<link href="//res.ivivu.com/hotel/css/iVIVU.HomePage.css?v=0.0.0.1" rel="stylesheet" type="text/css">-->
 
 
-    
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.10.2.min.js"></script>
 
 
 <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/vi_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/vi_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/vi_ALL/stats.js"></script></head>
@@ -48,6 +49,13 @@
     <!-- BEGIN HEADER -->
     <header>
     <div class="container">
+        
+        
+        
+        
+        
+        
+        
         <a class="site-logo" href="#" title="booking hotel online">
             <!--<i class="sprites ivivu-logo"></i>-->
         </a>
@@ -55,9 +63,9 @@
             <i class="sprites icn-menu-list"></i>
         </a>
         <!-- BEGIN HOTLINE -->
-        <ul class="hotline pull-right">
-            <li><a class="hotline" href="tel:0988332563">0988.332.563</a></li>
-            <li>from 7h30-21h every day</li>
+        <ul class="hotline pull-right" style="margin-top: 30px">
+            <li><a class="hotline" href="tel:0988332563" style="margin-top: 30px">0988.332.563</a></li>
+            <li style="font-size: 14px">from 7h30-21h every day</li>
             <li class="menu-search hover-opacity-8" data-toggle="tooltip" data-placement="left" title="" data-original-title="search hotel">
                 <a href="javascript:;">
                     <i class="sprites icn-menu-search"></i>
@@ -102,8 +110,8 @@
                <?php if( !Yii::app()->user->isGuest){
                    
                    ?>
-             <li class="dropdown" style="margin-right:  50px">
-                    <a class="dropdown-toggle menu-more" data-toggle="dropdown" href="javascript:;">
+             <li class="dropdown" style="height: 62px">
+                 <a class="dropdown-toggle menu-more"  data-toggle="dropdown" href="javascript:;">
                         <i style="font-size: 12px"><img src="<?php echo Yii::app()->baseUrl?>/img/profile_icon.png" width="40px" height="40px" >welcome,</i>
                         
                         <i><?php echo Yii::app()->user->name; ?>!</i>
@@ -111,7 +119,7 @@
                     </a>
                     <ul class="dropdown-menu bullet">
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile">Profile</a></li>
-                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>
+<!--                        <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/edit">Edit</a></li>-->
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/profile/changepassword">Change password</a></li>
                         <li><a href="<?php echo Yii::app()->baseUrl?>/index.php/user/logout">Logout</a></li>
                     </ul>
@@ -125,11 +133,228 @@
     </div>
 </header>
   
-    <div class="container" style="min-height: 500px; margin-left: 450px; margin-top: 100px">
+    <div class="container" style="min-height: 500px; margin-top: 50px">
+<!--        <div id="topbar">
+  <a href="http://designshack.net">Back to Design Shack</a>
+  </div>-->
+  
+  <div id="w">
+    <div id="content1" class="clearfix">
+      <div id="userphoto"><img src="<?php echo Yii::app()->baseUrl; ?>/img/avatar.png" alt="default avatar"></div>
+      <h1>User Profile Management</h1>
+
+      <nav id="profiletabs">
+          <ul class="clearfix" style="font-size: 15px;">
+          <li><a href="#bio" class="sel">Profile</a></li>
+          <li><a href="#activity">Booking history</a></li>
+          <li><a href="#friends">All comments</a></li>
+          <li><a href="#settings">Edit</a></li>
+          
+        </ul>
+      </nav>
+      
+      <section id="bio" style="font-size: 20px;font-family: arial; font-weight: bold">
+        <?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
+<div class="success">
+<?php echo Yii::app()->user->getFlash('profileMessage'); ?>
+</div>
+<?php endif; ?>
+          <table class="dataGrid"style="text-align: left">
+<tr>
+    <th class="label" style="color: #0000FF;font-size: 15px;"><?php echo CHtml::encode($model->getAttributeLabel('username')); ?>
+    </th>
+    <td ><?php echo CHtml::encode($model->username); ?>
+</td>
+</tr>
+
+<?php 
+		$profileFields=ProfileField::model()->forOwner()->sort()->findAll();
+		if ($profileFields) {
+			foreach($profileFields as $field) {
+//				echo "<pre>"; print_r($profile); die();
+			?>
+<tr>
+    <th class="label" style="color: #0000FF; font-size: 15px;float: left"><?php echo CHtml::encode(UserModule::t($field->title)); ?>
+    </th>
+    <td><?php echo (($field->widgetView($profile))?$field->widgetView($profile):CHtml::encode((($field->range)?Profile::range($field->range,$profile->getAttribute($field->varname)):$profile->getAttribute($field->varname)))); ?>
+</td>
+
+
+</tr>
+
+			<?php
+			}//$profile->getAttribute($field->varname)
+		
+                       
+                        }
+?>
+<br>
+<tr>
+	<th class="label" style="color: #0000FF;font-size: 15px;"><?php echo CHtml::encode($model->getAttributeLabel('email')); ?>
+</th>
+    <td><?php echo CHtml::encode($model->email); ?>
+</td>
+</tr>
+<tr>
+	<th class="label" style="color: #0000FF;font-size: 15px;"><?php echo CHtml::encode($model->getAttributeLabel('createtime')); ?>
+</th>
+    <td><?php echo date("d.m.Y H:i:s",$model->createtime); ?>
+</td>
+</tr>
+<tr>
+	<th class="label" style="color:#0000FF;font-size: 15px;"><?php echo CHtml::encode($model->getAttributeLabel('lastvisit')); ?>
+</th>
+    <td><?php echo date("d.m.Y H:i:s",$model->lastvisit); ?>
+</td>
+</tr>
+<tr>
+	<th class="label" style="color: #0000FF;font-size: 15px;"><?php echo CHtml::encode($model->getAttributeLabel('status')); ?>
+</th>
+    <td><?php echo CHtml::encode(User::itemAlias("UserStatus",$model->status));
+    ?>
+</td>
+</tr>
+</table>
+      </section>
+      
+      <section id="activity" class="hidden">
+        <p>All Booking :</p>
+        <?php
+        
+        $id = Yii::app()->user->id;
+        $book = Booking::model()->findAll("user_id = {$id}",array(
+          'order' =>'date_create DESC',
+            
+            )
+        ); 
+        foreach ($book as $book){
+           
+            $bookdetail = BookingDetail::model()->find("booking_id = {$book->id}");
+          
+            $room = Rooms::model()->findByPk($book->room_id);
+            $hotel = Hotels::model()->findByPk($room->hotel_id);
+       ?>
+        
+       
+        
+        <a href="<?php  if(isset($bookdetail)) echo $this->createUrl('/site/success/', array('bookingdetail_id' => $bookdetail->id))
+          ?>"><p class="activity">@<?php echo $book->date_create; ?> - booking <span style="color: #0000FF; font-weight: bold"><?php echo $room->name; ?></span> at <span style="color: #0000FF; font-weight: bold"><?php echo $hotel->name; ?></span> </p></a> 
+            <?php 
+         }
+        
+        
+        
+        ?>
+      </section>
+      
+      <section id="friends" class="hidden" style="font-size:15px;">
+        <p>All Comments:</p>
+       
+        
+        <ul id="friendslist" class="clearfix">
+             <?php 
+        $com = Comments::model()->findAll("user_id = {$id}");
+        foreach ($com as $com){
+            
+            ?>
+      
+            <li>@<?php echo $com->date_create;?> you voted <span style="color: #0000FF; font-weight: bold"><?php echo $com->point;?></span> to <span style="color: #0000FF; font-weight: bold"><?php echo Hotels::model()->findByPk($com->hotel_id)->name; ?></span>
+                with comment  " <span style="font-style: italic; color: #080"><?php echo $com->content; ?></span>"
+            
+            
+            </li>
+         <?php  }
+        ?>
+        </ul>
+      </section>
+      
+      <section id="settings" class="hidden" style="font-size: 15px">
+   
+        
+       
+<?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
+<div class="success">
+<?php echo Yii::app()->user->getFlash('profileMessage'); ?>
+</div>
+<?php endif; ?>
+<div class="form">
+<?php $form=$this->beginWidget('UActiveForm', array(
+	'id'=>'profile-form',
+	'enableAjaxValidation'=>true,
+	'htmlOptions' => array('enctype'=>'multipart/form-data'),
+)); ?>
+
+	
+
+	<?php echo $form->errorSummary(array($model,$profile)); ?>
+
+<?php 
+		$profileFields=$profile->getFields();
+		if ($profileFields) {
+			foreach($profileFields as $field) {
+			?>
+	<div class="row">
+		<?php echo $form->labelEx($profile,$field->varname);
+		
+		if ($field->widgetEdit($profile)) {
+			echo $field->widgetEdit($profile);
+		} elseif ($field->range) {
+			echo $form->dropDownList($profile,$field->varname,Profile::range($field->range));
+		} elseif ($field->field_type=="TEXT") {
+			echo $form->textArea($profile,$field->varname);
+		} else {
+			echo $form->textField($profile,$field->varname);
+		}
+		echo $form->error($profile,$field->varname); ?>
+	</div>	
+			<?php
+			}
+		}
+?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'username'); ?>
+		<?php echo $form->textField($model,'username'); ?>
+		<?php echo $form->error($model,'username'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email'); ?>
+		<?php echo $form->error($model,'email'); ?>
+	</div>
+
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? UserModule::t('Create') : UserModule::t('Save')); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->
+      </section>
+   
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+    
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+    
+    $('#content1 section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+    
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
         <br>  <br>  <br>  <br>
 <?php // echo $this->renderPartial('menu'); ?>
         
-
+<!--
 <?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
 <div class="success">
 <?php echo Yii::app()->user->getFlash('profileMessage'); ?>
@@ -190,7 +415,7 @@
     ?>
 </td>
 </tr>
-</table>
+</table>-->
 </div>
         <footer>
     <div class="container">
